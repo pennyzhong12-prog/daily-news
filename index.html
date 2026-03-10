@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily News Digest — 2026年03月10日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --text-headline: #1a1714;
+      --text-body: #4a4540;
+      --text-meta: #8a8075;
+      --tag-breaking: #b31e24;
+      --tag-essential: #8a5c0a;
+      --tag-context: #1a5a5c;
+      --tag-standard: #9e9e9e;
+      --border: #d4cfc7;
+      --context-bg: #ebe6de;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Source Serif 4', serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      border-bottom: 2px solid var(--text-headline);
+      margin-bottom: 2rem;
+    }
+    
+    .masthead h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--text-headline);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .masthead .date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--text-meta);
+    }
+    
+    /* Section Nav */
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    
+    .section-nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-meta);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .section-nav a:hover {
+      color: var(--text-headline);
+    }
+    
+    /* News Section */
+    .news-section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-headline);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-title .zh-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      color: var(--text-meta);
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+    
+    /* Story Grid */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    /* Story Card */
+    .story-card {
+      background: #faf7f2;
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .story-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.625rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      align-self: flex-start;
+    }
+    
+    .tag-breaking { background: var(--tag-breaking); color: #fff; }
+    .tag-essential { background: var(--tag-essential); color: #fff; }
+    .tag-context { background: var(--tag-context); color: #fff; }
+    .tag-standard { background: var(--tag-standard); color: #fff; }
+    
+    .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    
+    .headline a {
+      color: var(--text-headline);
+      text-decoration: none;
+    }
+    
+    .headline a:hover {
+      text-decoration: underline;
+    }
+    
+    .summary {
+      font-size: 0.9375rem;
+      color: var(--text-body);
+    }
+    
+    .context-block {
+      background: var(--context-bg);
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-left: 2px solid var(--text-meta);
+    }
+    
+    .context-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.625rem;
+      color: var(--text-meta);
+      text-transform: uppercase;
+    }
+    
+    .context-text {
+      font-size: 0.8125rem;
+      color: var(--text-body);
+      margin-top: 0.25rem;
+    }
+    
+    .meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-meta);
+      margin-top: auto;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    
+    .read-more {
+      margin-left: auto;
+      color: var(--text-headline);
+      text-decoration: none;
+    }
+    
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    .site-footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 2px solid var(--text-headline);
+      margin-top: 3rem;
+    }
+    
+    .site-footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-meta);
+      margin: 0.25rem 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .masthead h1 {
+        font-size: 2.5rem;
+      }
+      
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Masthead -->
+    <header class="masthead">
+      <h1>The Dispatch</h1>
+      <p class="date">Tuesday, March 10, 2026 · 21 stories · Past 24h</p>
+    </header>
+    
+    <!-- Section Nav -->
+    <nav class="section-nav">
+      <a href="#politics">Politics</a>
+      <a href="#energy">Energy</a>
+      <a href="#macro">Macro</a>
+      <a href="#tech">AI & Tech</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#consumer">Consumer</a>
+    </nav>
+    
+    <!-- Sections -->
+    
+  <section id="politics" class="news-section">
+    <h2 class="section-title">Politics & Conflict <span class="zh-name">政治与冲突</span></h2>
+    <div class="story-grid">
+      
+      <article class="story-card" id="story-0">
+        <span class="tag tag-breaking">BREAKING</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/6fda3451-8fd3-4ec1-8ab2-17f33291ec5e" target="_blank" rel="noopener">Oil slides as Trump says war will end ‘very soon’</a></h3>
+        <p class="summary">Brent crude back to $94 after surging to nearly $120 on Monday</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in politics & conflict. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">04:05</span>
+          <a href="https://www.ft.com/content/6fda3451-8fd3-4ec1-8ab2-17f33291ec5e" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-1">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/364a246a-8837-4de0-82d8-53d982844bfa" target="_blank" rel="noopener">Israel expects Lebanon offensive to outlast Iran conflict</a></h3>
+        <p class="summary">IDF preparing extended campaign against militant group Hizbollah, according to people familiar with discussions</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in politics & conflict. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">05:00</span>
+          <a href="https://www.ft.com/content/364a246a-8837-4de0-82d8-53d982844bfa" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-2">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/us/politics/trump-iran-gas-prices-gop-agenda.html" target="_blank" rel="noopener">Trump’s War in Iran, and Rising Gas Prices, Collide With Midterm Agenda</a></h3>
+        <p class="summary">The attack on Iran has led to a surge in energy prices at a moment when the cost of living is a major issue heading into the fall elections.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in politics & conflict. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">03:32</span>
+          <a href="https://www.nytimes.com/2026/03/09/us/politics/trump-iran-gas-prices-gop-agenda.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-3">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/opinion/iran-israel-united-states-bombing.html" target="_blank" rel="noopener">Trump Has No Idea How to End the War With Iran</a></h3>
+        <p class="summary">Only when the U.S.-Israeli bombing of Iran comes to a halt, without destroying the state, can the Iranian people sort out their fate.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in politics & conflict. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">01:50</span>
+          <a href="https://www.nytimes.com/2026/03/09/opinion/iran-israel-united-states-bombing.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-4">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/obituaries/bo-gritz-dead.html" target="_blank" rel="noopener">Bo Gritz, Vietnam Veteran Called a Real-Life Rambo, Dies at 87</a></h3>
+        <p class="summary">He served in the Special Forces, led a postwar raid to find P.O.W.s and became a voice of the right-wing anti-government fringe.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in politics & conflict. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">18:24</span>
+          <a href="https://www.nytimes.com/2026/03/09/obituaries/bo-gritz-dead.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+    </div>
+  </section>
+
+
+  <section id="energy" class="news-section">
+    <h2 class="section-title">Energy & Resources <span class="zh-name">能源与资源</span></h2>
+    <div class="story-grid">
+      
+      <article class="story-card" id="story-0">
+        <span class="tag tag-breaking">BREAKING</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/2ac57d2f-213f-42ee-98a9-a1e14e819915" target="_blank" rel="noopener">Can the G7 release enough oil to calm the market?</a></h3>
+        <p class="summary">Analysts are sceptical that releasing strategic reserves would solve the problems in the Gulf</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in energy & resources. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">05:00</span>
+          <a href="https://www.ft.com/content/2ac57d2f-213f-42ee-98a9-a1e14e819915" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-1">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/af404e0a-7abc-49bc-9584-cd4690152f86" target="_blank" rel="noopener">Anthropic sues Pentagon claiming supply chain risk label could cost billions in revenue</a></h3>
+        <p class="summary">Start-up launches legal challenge against the decision to designate it a risk to US military supply chains</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in energy & resources. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">23:14</span>
+          <a href="https://www.ft.com/content/af404e0a-7abc-49bc-9584-cd4690152f86" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-2">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/climate/gasoline-oil-prices-iran.html" target="_blank" rel="noopener">Oil Prices Will Remain High as Iran War Continues</a></h3>
+        <p class="summary">While officials look for ways to ease oil shocks, experts say higher prices will likely persist until traffic through the Strait of Hormuz returns.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in energy & resources. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">22:29</span>
+          <a href="https://www.nytimes.com/2026/03/09/climate/gasoline-oil-prices-iran.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-3">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/10/business/energy-environment/donald-trump-solar-energy-batteries.html" target="_blank" rel="noopener">U.S. Solar Installations Fell in 2025 as Trump Attacked Clean Energy</a></h3>
+        <p class="summary">More solar energy was added to U.S. grids than any other technology, but the amount installed fell by 14 percent, according to a new report.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in energy & resources. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">04:01</span>
+          <a href="https://www.nytimes.com/2026/03/10/business/energy-environment/donald-trump-solar-energy-batteries.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-4">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/10/arts/television/late-night-trump-gas.html" target="_blank" rel="noopener">Late Night Scolds Trump Over Gasoline Prices</a></h3>
+        <p class="summary">“You can lie about many things in American life, but one thing you can’t lie about is gas prices,” Late Night host Seth Meyers said. “Everyone sees it.”</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in energy & resources. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">06:26</span>
+          <a href="https://www.nytimes.com/2026/03/10/arts/television/late-night-trump-gas.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+    </div>
+  </section>
+
+
+  <section id="macro" class="news-section">
+    <h2 class="section-title">Macro & Markets <span class="zh-name">宏观与市场</span></h2>
+    <div class="story-grid">
+      
+      <article class="story-card" id="story-0">
+        <span class="tag tag-breaking">BREAKING</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/fd25b7fe-39ed-4a07-88f2-8db009a2867c" target="_blank" rel="noopener">Khamenei martyrdom narrative smooths path for son’s rise</a></h3>
+        <p class="summary">Regime invokes religious history to galvanise support from Shia groups after Ayatollah Ali Khamenei’s assassination</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in macro & markets. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">07:01</span>
+          <a href="https://www.ft.com/content/fd25b7fe-39ed-4a07-88f2-8db009a2867c" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-1">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/a49da063-ac4d-4d04-9ba5-58209835ed93" target="_blank" rel="noopener">The handymen and drivers keeping Tehran running</a></h3>
+        <p class="summary">Even under bombardment, workers across Iran’s capital are delivering food and fixing potholes</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in macro & markets. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">05:00</span>
+          <a href="https://www.ft.com/content/a49da063-ac4d-4d04-9ba5-58209835ed93" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-2">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/703779ff-87e0-4412-8024-577998c862b6" target="_blank" rel="noopener">China’s exports surge 21.8% in first 2 months of this year</a></h3>
+        <p class="summary">Trade surplus hits record ahead of crucial summit between Donald Trump and Xi Jinping</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in macro & markets. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">04:48</span>
+          <a href="https://www.ft.com/content/703779ff-87e0-4412-8024-577998c862b6" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-3">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/ab888fec-a5de-4c31-8137-a0b3cac46a5b" target="_blank" rel="noopener">China’s petitioners battle to be heard</a></h3>
+        <p class="summary">With little other recourse, a centuries-old system offers the downtrodden a chance to make their case</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in macro & markets. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">01:59</span>
+          <a href="https://www.ft.com/content/ab888fec-a5de-4c31-8137-a0b3cac46a5b" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-4">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/nyregion/gracie-bomb-scene-mamdani.html" target="_blank" rel="noopener">Chaos on Mamdani’s Doorstep: ‘We’ve Never Had Anything Like This Here’</a></h3>
+        <p class="summary">For two hours, the streets around Gracie Mansion became the stage for a heated protest, reflecting a nation seething with angst and unease.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in macro & markets. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">20:53</span>
+          <a href="https://www.nytimes.com/2026/03/09/nyregion/gracie-bomb-scene-mamdani.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+    </div>
+  </section>
+
+
+  <section id="tech" class="news-section">
+    <h2 class="section-title">AI & Technology <span class="zh-name">AI 与科技</span></h2>
+    <div class="story-grid">
+      
+      <article class="story-card" id="story-0">
+        <span class="tag tag-breaking">BREAKING</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/e5245ec3-1a58-4eff-ab58-480b6259aaf1" target="_blank" rel="noopener">Yann LeCun’s AI start-up raises more than $1bn in Europe’s largest seed round</a></h3>
+        <p class="summary">Meta’s former chief AI scientist launches AMI Labs with backing from Nvidia, Temasek and Jeff Bezos</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in ai & technology. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">05:00</span>
+          <a href="https://www.ft.com/content/e5245ec3-1a58-4eff-ab58-480b6259aaf1" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-1">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/52c4f129-891f-4afe-9cf4-3934630a50ad" target="_blank" rel="noopener">Goldman pitches hedge funds on strategies to bet against corporate loans</a></h3>
+        <p class="summary">Fears that AI advances will upend the software industry have driven demand for new ways to place wagers</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in ai & technology. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">21:00</span>
+          <a href="https://www.ft.com/content/52c4f129-891f-4afe-9cf4-3934630a50ad" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-2">
+        <span class="tag tag-essential">ESSENTIAL</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/7cab4ec7-4712-4137-b602-119a44f771de" target="_blank" rel="noopener">Amazon holds engineering meeting following AI-related outages</a></h3>
+        <p class="summary">Ecommerce giant says there has been a ‘trend of incidents’ linked to ‘Gen-AI assisted changes’</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in ai & technology. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">04:40</span>
+          <a href="https://www.ft.com/content/7cab4ec7-4712-4137-b602-119a44f771de" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-3">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.ft.com/content/531f7512-94aa-4e97-b986-2dcd8e8cb4c0" target="_blank" rel="noopener">Sheryl Sandberg and Nick Clegg join Nvidia-backed AI start-up Nscale</a></h3>
+        <p class="summary">Cloud provider raises $2bn in largest deal of its kind for a European tech start-up</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in ai & technology. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">International homepage</span>
+          <span class="time">14:39</span>
+          <a href="https://www.ft.com/content/531f7512-94aa-4e97-b986-2dcd8e8cb4c0" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-4">
+        <span class="tag tag-standard">STANDARD</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/world/middleeast/iran-school-strike-us-missile.html" target="_blank" rel="noopener">Missile in Deadly Iranian School Strike Appears to Be U.S.-Made, Photos Taken by Iran Show</a></h3>
+        <p class="summary">Iranian state media posted mangled remnants it claims were from the Feb. 28 attack in Minab. An analysis shows they have the markings of a missile made by American manufacturers</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in ai & technology. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">03:46</span>
+          <a href="https://www.nytimes.com/2026/03/09/world/middleeast/iran-school-strike-us-missile.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+    </div>
+  </section>
+
+
+  <section id="corporate" class="news-section">
+    <h2 class="section-title">Corporate <span class="zh-name">企业动态</span></h2>
+    <div class="story-grid">
+      
+      <article class="story-card" id="story-0">
+        <span class="tag tag-breaking">BREAKING</span>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/us/casey-wasserman-epstein-company-name.html" target="_blank" rel="noopener">Casey Wasserman Agency Removes His Name From Company in Epstein Fallout</a></h3>
+        <p class="summary">The sports and marketing agency is contending with the fallout from the Epstein files, and it is continuing to look for a buyer.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story reflects ongoing developments in corporate. Readers should follow the link for complete coverage and real-time updates.</p>
+        </div>
+        <footer class="meta">
+          <span class="source">NYT > Top Stories</span>
+          <span class="time">23:19</span>
+          <a href="https://www.nytimes.com/2026/03/09/us/casey-wasserman-epstein-company-name.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+    </div>
+  </section>
+
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Generated by AI · 2026-03-10 15:34 UTC</p>
+      <p>Sources: Bloomberg Asia · Financial Times · New York Times · Washington Post · WSJ</p>
+      <p style="opacity: 0.7;">Summaries for reference only. Click links for full articles.</p>
+    </footer>
+    
+  </div>
+</body>
+</html>
