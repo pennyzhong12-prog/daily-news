@@ -67,11 +67,12 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
       color: var(--text-meta);
-      margin-top: 0.5rem;
-      padding: 0.5rem;
+      margin-top: 0.75rem;
+      padding: 0.5rem 0.75rem;
       background: #ebe6de;
       border-radius: 4px;
       display: inline-block;
+      max-width: 600px;
     }
     
     /* Section Nav */
@@ -137,6 +138,7 @@
       flex-direction: column;
       gap: 0.75rem;
       transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 280px;
     }
     
     .story-card:hover {
@@ -148,8 +150,7 @@
       display: flex;
       gap: 0.5rem;
       align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
     
     .tag {
@@ -157,10 +158,11 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.625rem;
       font-weight: 500;
-      padding: 0.25rem 0.5rem;
+      padding: 0.2rem 0.45rem;
       border-radius: 2px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
     }
     
     .tag-breaking { background: var(--tag-breaking); color: #fff; }
@@ -173,23 +175,26 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.625rem;
       color: var(--text-meta);
-      padding: 0.25rem 0.5rem;
+      padding: 0.2rem 0.45rem;
       border: 1px solid var(--border);
       border-radius: 2px;
       background: #f0ece4;
       cursor: help;
+      white-space: nowrap;
     }
     
     .headline {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
       font-weight: 600;
-      line-height: 1.3;
+      line-height: 1.35;
+      margin-bottom: 0.25rem;
     }
     
     .headline a {
       color: var(--text-headline);
       text-decoration: none;
+      word-break: break-word;
     }
     
     .headline a:hover {
@@ -199,44 +204,57 @@
     .summary {
       font-size: 0.9375rem;
       color: var(--text-body);
+      line-height: 1.5;
+      flex-grow: 1;
     }
     
     .context-block {
       background: var(--context-bg);
-      padding: 0.75rem;
+      padding: 0.625rem 0.75rem;
       margin: 0.5rem 0;
       border-left: 2px solid var(--text-meta);
+      border-radius: 0 2px 2px 0;
     }
     
     .context-label {
+      display: block;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.625rem;
       color: var(--text-meta);
       text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.25rem;
     }
     
     .context-text {
       font-size: 0.8125rem;
       color: var(--text-body);
-      margin-top: 0.25rem;
+      line-height: 1.4;
+      margin: 0;
     }
     
     .meta {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       align-items: center;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: var(--text-meta);
       margin-top: auto;
       padding-top: 0.75rem;
       border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    
+    .source {
+      font-weight: 500;
     }
     
     .read-more {
       margin-left: auto;
       color: var(--text-headline);
       text-decoration: none;
+      font-weight: 500;
     }
     
     .read-more:hover {
@@ -260,17 +278,40 @@
     
     /* Responsive */
     @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+      
       .masthead h1 {
         font-size: 2.5rem;
       }
       
+      .masthead .disclaimer-top {
+        font-size: 0.625rem;
+        padding: 0.4rem 0.5rem;
+      }
+      
       .story-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .story-card {
+        min-height: auto;
       }
       
       .section-nav {
         flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .headline {
+        font-size: 1.125rem;
       }
     }
   </style>
@@ -303,6 +344,25 @@
       
       <article class="story-card" id="story-0">
         <div class="card-header">
+          <span class="tag tag-essential">ESSENTIAL</span>
+          <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
+        </div>
+        <h3 class="headline"><a href="https://www.washingtonpost.com/world/2026/03/10/dubai-gulf-iran-war-strikes/" target="_blank" rel="noopener">Dubai, oasis for business and partying, confronts war</a></h3>
+        <p class="summary">Iranian airstrikes have shaken Persian Gulf countries, undermining their reputations as havens of wealth and stability and forcing them to take sides in a war they opposed.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story involves Iran. The ongoing Iran-Israel conflict has entered its third week with no clear resolution. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+        </div>
+        <footer class="meta">
+          <span class="source" title="WaPo">WaPo</span>
+          <span class="time">08:30</span>
+          <a href="https://www.washingtonpost.com/world/2026/03/10/dubai-gulf-iran-war-strikes/" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-1">
+        <div class="card-header">
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
@@ -316,25 +376,6 @@
           <span class="source" title="WaPo">WaPo</span>
           <span class="time">22:54</span>
           <a href="https://www.washingtonpost.com/national-security/2026/03/09/us-diplomats-middle-east-iran/" target="_blank" rel="noopener" class="read-more">Read more →</a>
-        </footer>
-      </article>
-
-
-      <article class="story-card" id="story-1">
-        <div class="card-header">
-          <span class="tag tag-standard">STANDARD</span>
-          <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
-        </div>
-        <h3 class="headline"><a href="https://www.washingtonpost.com/national-security/2026/03/09/iran-war-cost/" target="_blank" rel="noopener">Early Iran strikes cost $5.6 billion in munitions, Pentagon estimates</a></h3>
-        <p class="summary">The figure, accounting for the war’s first two days, is likely to intensify concerns in Congress that U.S. forces are churning through a scarce supply of advanced weaponry.</p>
-        <div class="context-block">
-          <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves Iran and Pentagon. The ongoing Iran-Israel conflict has entered its third week with no clear resolution.</p>
-        </div>
-        <footer class="meta">
-          <span class="source" title="WaPo">WaPo</span>
-          <span class="time">21:25</span>
-          <a href="https://www.washingtonpost.com/national-security/2026/03/09/iran-war-cost/" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -408,35 +449,35 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/videos/2026-03-10/daybreak-europe-3-10-2026-video" target="_blank" rel="noopener">Trump Talks to Putin After Iran Market Panic, Insists 'I Have a Plan' | Daybreak Europe 3/10/2026</a></h3>
-        <p class="summary">On today's show, President Donald Trump said he could waive oil-related sanctions, have the US Navy escort tankers through the Strait of Hormuz and predicted on Monday that the war with Iran would resolve “very soon” as he confronted mounting economic and political pressure and days of dramatic...</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/rory-johnston-on-how-oil-could-surge-to-over-200-a-barrel" target="_blank" rel="noopener">Rory Johnston on How Oil Could Surge to Over $200 a Barrel</a></h3>
+        <p class="summary"><p>The mother of all oil shocks.</p></p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves Iran, US among others. The ongoing Iran-Israel conflict has entered its third week with no clear resolution. The Strait of Hormuz remains a critical chokepoint for global oil shipments. Investors are closely watching for further developments that could affect market stability. Diplomatic channels remain active as parties seek potential resolutions. The technology sector continues to face rapid changes and regulatory scrutiny. Sanctions policy remains a key tool in international relations.</p>
+          <p class="context-text">Global oil markets remain volatile amid supply concerns. Investors are closely watching for further developments that could affect market stability.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">08:01</span>
-          <a href="https://www.bloomberg.com/news/videos/2026-03-10/daybreak-europe-3-10-2026-video" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">08:00</span>
+          <a href="https://www.bloomberg.com/news/articles/2026-03-10/rory-johnston-on-how-oil-could-surge-to-over-200-a-barrel" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
 
       <article class="story-card" id="story-1">
         <div class="card-header">
-          <span class="tag tag-essential">ESSENTIAL</span>
+          <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/trump-hints-at-early-end-to-iran-war-easing-oil-shock-concerns" target="_blank" rel="noopener">Trump Hints at Early End to Iran War, Easing Oil-Shock Concerns</a></h3>
-        <p class="summary">President Donald Trump on Monday said the US and Israel were making significant progress in their war on Iran and could end the conflict “very soon,” curtailing an oil-price surge.</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/audio/2026-03-10/odd-lots-how-oil-could-surge-to-over-200-a-barrel-podcast" target="_blank" rel="noopener">Odd Lots: How Oil Could Surge to Over $200 a Barrel (Podcast)</a></h3>
+        <p class="summary"></p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves Iran, Israel among others. The ongoing Iran-Israel conflict has entered its third week with no clear resolution. Oil markets are reacting to Trump administration policy signals. Investors are closely watching for further developments that could affect market stability. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+          <p class="context-text">Global oil markets remain volatile amid supply concerns. Investors are closely watching for further developments that could affect market stability.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">07:47</span>
-          <a href="https://www.bloomberg.com/news/articles/2026-03-10/trump-hints-at-early-end-to-iran-war-easing-oil-shock-concerns" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">08:00</span>
+          <a href="https://www.bloomberg.com/news/audio/2026-03-10/odd-lots-how-oil-could-surge-to-over-200-a-barrel-podcast" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -484,16 +525,16 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxOZldqT2p1YVk3ZzdQVWhpQ0tGdkFxSDIwNlFKMm5acHFBNDk3bG9wR0RtTGpFZUZiaTZPMHprWk1JOE02QmJWZ0NEWXRxbG1LSTAtYlFnYU1GNXNCVjdzNENqQnlCYkczM3p3OGhMNV96ME80NXZLOV9jSmFvTjJNWnhsSUlzRjlaRk1ueTRUWGFEcDMxYm56WEZjckw4UnZxR0ZGVmduOFJxcE95Ty1ReElYNENrOE56NVZzdXRpT3hLQ1VhZG9OVXplWmVuSm4zRG1aemlEQ1ZuY0ZkZDBhelVOLUNqc2ZEVFNBV3B3bHZFWmlXMEstclNHZ0dXaFJGaS1FOGd5cEhjdFo0LU1EczZIM3l5dE1nUDMzMHZ1aklxVnBTWFVIdUxBRnRYekVWMDB0eFExWUNaQWlqZ3ZqTWZjVDZCRzBaYzJjb1lOSGtWdXVZRl9aZEVXcURsU19fWEhxbmhwcw?oc=5" target="_blank" rel="noopener">Print Edition | Wall Street Journal</a></h3>
-        <p class="summary"><a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxOZldqT2p1YVk3ZzdQVWhpQ0tGdkFxSDIwNlFKMm5acHFBNDk3bG9wR0RtTGpFZUZiaTZPMHprWk1JOE02QmJWZ0NEWXRxbG1LSTAtYlFnYU1GNXNCVjdzNENqQnlCYkczM3p3OGhMNV96ME80NXZLOV9jSmFvTjJNWnhsSUlzRjlaRk1ueTRUWGFEcDMxYm56WEZjckw4UnZxR0ZGVmduOFJxcE95Ty1ReElYNENrOE56NV</p>
+        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiigNBVV95cUxOd2cyN0VZVGNNX24wX0cwMlE5dmZpNU1hNHBzamZwT3RKZ2xqZ0Mycm1CQjVqa29XZDI3bHJ6Zkk3YjZQckdySC1jYVYzVU9UWk82QUFDNll0bUVuRGZ6UkpXNFR2NlJwektQUDFYZTN2T00zanJTUVI0STQtQms5Q1lPLTUxN1Bxcmp4aWRKeU9yRWNVUWNPMGhpZzh0bWxUclRhTEcyaW8wMzFBeFdLUU9tcDR4M0NsSFJLYlEyMk93RTJ2LXhfeG5IaThNb3I1V09mRUcyT0RPcmFuNUs0WG5Wdl81dEdwa0dxb0FLZGd2cnF4anA4SUpYcDZjZmRWdkVoQ0lBNThGVTBtVU1OX1VZRDZlZ1NfWXBmamhDNmFfY1JweXVBd25WUHJ0dUhmNXRUcnR4WWMzMDh1bTBadXBUUGlWUDk1R0FscHFpT1FoWmYwOUhCQUwzQzR3T1BLWXE2WkVkTHBCRTlHYVhmZkxuUjhLVHdGMmdIQzFnVGN5WXVmc1lyZk5R?oc=5" target="_blank" rel="noopener">The 24 Hours When Oil Markets Went Wild</a></h3>
+        <p class="summary"><a href="https://news.google.com/rss/articles/CBMiigNBVV95cUxOd2cyN0VZVGNNX24wX0cwMlE5dmZpNU1hNHBzamZwT3RKZ2xqZ0Mycm1CQjVqa29XZDI3bHJ6Zkk3YjZQckdySC1jYVYzVU9UWk82QUFDNll0bUVuRGZ6UkpXNFR2NlJwektQUDFYZTN2T00zanJTUVI0STQtQms5Q1lPLTUxN1Bxcmp4aWRKeU9yRWNVUWNPMGhpZzh0bWxUclRhTEcyaW8wMzFBeFdLUU9tcDR4M0NsSF</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">Energy markets remain sensitive to geopolitical and supply-side factors.</p>
+          <p class="context-text">Global oil markets remain volatile amid supply concerns. Investors are closely watching for further developments that could affect market stability.</p>
         </div>
         <footer class="meta">
           <span class="source" title="WSJ">WSJ</span>
-          <span class="time">08:09</span>
-          <a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxOZldqT2p1YVk3ZzdQVWhpQ0tGdkFxSDIwNlFKMm5acHFBNDk3bG9wR0RtTGpFZUZiaTZPMHprWk1JOE02QmJWZ0NEWXRxbG1LSTAtYlFnYU1GNXNCVjdzNENqQnlCYkczM3p3OGhMNV96ME80NXZLOV9jSmFvTjJNWnhsSUlzRjlaRk1ueTRUWGFEcDMxYm56WEZjckw4UnZxR0ZGVmduOFJxcE95Ty1ReElYNENrOE56NVZzdXRpT3hLQ1VhZG9OVXplWmVuSm4zRG1aemlEQ1ZuY0ZkZDBhelVOLUNqc2ZEVFNBV3B3bHZFWmlXMEstclNHZ0dXaFJGaS1FOGd5cEhjdFo0LU1EczZIM3l5dE1nUDMzMHZ1aklxVnBTWFVIdUxBRnRYekVWMDB0eFExWUNaQWlqZ3ZqTWZjVDZCRzBaYzJjb1lOSGtWdXVZRl9aZEVXcURsU19fWEhxbmhwcw?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">20:47</span>
+          <a href="https://news.google.com/rss/articles/CBMiigNBVV95cUxOd2cyN0VZVGNNX24wX0cwMlE5dmZpNU1hNHBzamZwT3RKZ2xqZ0Mycm1CQjVqa29XZDI3bHJ6Zkk3YjZQckdySC1jYVYzVU9UWk82QUFDNll0bUVuRGZ6UkpXNFR2NlJwektQUDFYZTN2T00zanJTUVI0STQtQms5Q1lPLTUxN1Bxcmp4aWRKeU9yRWNVUWNPMGhpZzh0bWxUclRhTEcyaW8wMzFBeFdLUU9tcDR4M0NsSFJLYlEyMk93RTJ2LXhfeG5IaThNb3I1V09mRUcyT0RPcmFuNUs0WG5Wdl81dEdwa0dxb0FLZGd2cnF4anA4SUpYcDZjZmRWdkVoQ0lBNThGVTBtVU1OX1VZRDZlZ1NfWXBmamhDNmFfY1JweXVBd25WUHJ0dUhmNXRUcnR4WWMzMDh1bTBadXBUUGlWUDk1R0FscHFpT1FoWmYwOUhCQUwzQzR3T1BLWXE2WkVkTHBCRTlHYVhmZkxuUjhLVHdGMmdIQzFnVGN5WXVmc1lyZk5R?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -548,16 +589,16 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxNMW91dWlJelFINDRXMGYwMWJ6R1VicndEUHZtRlVvZmJIYXI3OWF2WmZncW16QWtQZUF1NzdnYXRuLUN4aUtRMlNHVU9KcnItaEZEVGU5a3Y4UEg0LV91XzVpMUlzZlB0Z2gyZURCRVRQSklSX19yLWcwNE9xMHlLUEZLT00welJDa1RFMF9JRkM2QlpYMTM5dzRtYWdKc1VvbEIxX0dRNGNEM256X3pMb0lKLTdPbjZmNloxdGtPY1JDQ1JCUlBBODZKSDZyOFppWkNvQlFNNVJlUWFzSDdMbVRhcUNoQ21fVXY0ZEdWV25rdE5lU2dxREp4M1d3TUdfQ3hZR19Lc2d1ZTIycTVQSDNuakxOVTE3SWkyYnY3QnM5VVB3QmpxZHgza2NrRzZaaXhUaHJwUE14TkJXYWp2UjF4Y0pPLXpROTBJOFZLOF9UVURkQWU1VnZOZlRPSF9oa2tpNHhTUUZ4WHE4Y3RTT09zVW00YkMyRTJ1dzZ6bEZLT24zbWNxZjctblRZTjFKZmJNbXJYcFRNdTQ?oc=5" target="_blank" rel="noopener">China’s Exports Surge in First Two Months of Year</a></h3>
-        <p class="summary"><a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxNMW91dWlJelFINDRXMGYwMWJ6R1VicndEUHZtRlVvZmJIYXI3OWF2WmZncW16QWtQZUF1NzdnYXRuLUN4aUtRMlNHVU9KcnItaEZEVGU5a3Y4UEg0LV91XzVpMUlzZlB0Z2gyZURCRVRQSklSX19yLWcwNE9xMHlLUEZLT00welJDa1RFMF9JRkM2QlpYMTM5dzRtYWdKc1VvbEIxX0dRNGNEM256X3pMb0lKLTdPbjZmNl</p>
+        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxOeXJhd3NSM3JvSnc2OG5kSWQwR1JxQXFqWUQwdDRjaVk1SzJfcUJLNWRqR3U0RzVuUTNTRmx1TG1uUkFvSk1kYmR2WDk5ZFdzSXdwTGtkTkhwbDlLZFpjWi03azE1dWM2aFk5M1JKLVhPTHEzTjlUdkZOQnc5VkFKT3VzaHg4Y3IwSkpLbU53T0tzRThuWkFqZjZnZ0c0eXNnWElNZEpuRUFHbjMwZEozWUZIUEVVNlhzdThXdl9uc28zVl9paFBOVm1vWXlYR3A3UFJnSVNKcFhveFRSWDZ0T1JoUmliTDZhT0JwejJMTHJJdGNDZFkwUWtJUjVObnFCT3hFS0xHMlZJMmhnajJuWkRVUHFHeU5wR3FBNFNoWDRaMk1pMExrZkpjUDZLYUkxOXpzLWpVSXhETnRmemI4VHFqaV9YSlpxdVRJT2taUVRFOVpuZExxRWJHSVI1RDVqQmpBLXhzUQ?oc=5" target="_blank" rel="noopener">Print Edition | Wall Street Journal</a></h3>
+        <p class="summary"><a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxOeXJhd3NSM3JvSnc2OG5kSWQwR1JxQXFqWUQwdDRjaVk1SzJfcUJLNWRqR3U0RzVuUTNTRmx1TG1uUkFvSk1kYmR2WDk5ZFdzSXdwTGtkTkhwbDlLZFpjWi03azE1dWM2aFk5M1JKLVhPTHEzTjlUdkZOQnc5VkFKT3VzaHg4Y3IwSkpLbU53T0tzRThuWkFqZjZnZ0c0eXNnWElNZEpuRUFHbjMwZEozWUZIUEVVNlhzdT</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves China. Investors are closely watching for further developments that could affect market stability.</p>
+          <p class="context-text">Economic indicators suggest continued uncertainty in global markets.</p>
         </div>
         <footer class="meta">
           <span class="source" title="WSJ">WSJ</span>
-          <span class="time">05:44</span>
-          <a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxNMW91dWlJelFINDRXMGYwMWJ6R1VicndEUHZtRlVvZmJIYXI3OWF2WmZncW16QWtQZUF1NzdnYXRuLUN4aUtRMlNHVU9KcnItaEZEVGU5a3Y4UEg0LV91XzVpMUlzZlB0Z2gyZURCRVRQSklSX19yLWcwNE9xMHlLUEZLT00welJDa1RFMF9JRkM2QlpYMTM5dzRtYWdKc1VvbEIxX0dRNGNEM256X3pMb0lKLTdPbjZmNloxdGtPY1JDQ1JCUlBBODZKSDZyOFppWkNvQlFNNVJlUWFzSDdMbVRhcUNoQ21fVXY0ZEdWV25rdE5lU2dxREp4M1d3TUdfQ3hZR19Lc2d1ZTIycTVQSDNuakxOVTE3SWkyYnY3QnM5VVB3QmpxZHgza2NrRzZaaXhUaHJwUE14TkJXYWp2UjF4Y0pPLXpROTBJOFZLOF9UVURkQWU1VnZOZlRPSF9oa2tpNHhTUUZ4WHE4Y3RTT09zVW00YkMyRTJ1dzZ6bEZLT24zbWNxZjctblRZTjFKZmJNbXJYcFRNdTQ?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">08:09</span>
+          <a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxOeXJhd3NSM3JvSnc2OG5kSWQwR1JxQXFqWUQwdDRjaVk1SzJfcUJLNWRqR3U0RzVuUTNTRmx1TG1uUkFvSk1kYmR2WDk5ZFdzSXdwTGtkTkhwbDlLZFpjWi03azE1dWM2aFk5M1JKLVhPTHEzTjlUdkZOQnc5VkFKT3VzaHg4Y3IwSkpLbU53T0tzRThuWkFqZjZnZ0c0eXNnWElNZEpuRUFHbjMwZEozWUZIUEVVNlhzdThXdl9uc28zVl9paFBOVm1vWXlYR3A3UFJnSVNKcFhveFRSWDZ0T1JoUmliTDZhT0JwejJMTHJJdGNDZFkwUWtJUjVObnFCT3hFS0xHMlZJMmhnajJuWkRVUHFHeU5wR3FBNFNoWDRaMk1pMExrZkpjUDZLYUkxOXpzLWpVSXhETnRmemI4VHFqaV9YSlpxdVRJT2taUVRFOVpuZExxRWJHSVI1RDVqQmpBLXhzUQ?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -567,16 +608,16 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiigNBVV95cUxNMVdSOXpPdzM1VVlmazVhVkhpSWV6TTFDNE5DSkQtRGZwRjlraWJrWHhEekxORE1XM3QyVlRETzQ3blI5U0VXamVEaUhzWGFxUk0yTF9lSzVQYXhUTGRsV0FEdUJOTE4zWEJLY0FHS2lMdU9uMEhXV25jejB3cko5UFRaczZRRFRNbmx2eFB4RURodDVpalNjWUVrdFd0YW5zT1FubGhYUmZvY0NNMDNwMmlMenZudWFPTDRBV0lJaHliWmRkQnNNZjVleXlJLXNpaV9SX0pCRE9FTGczdVZrY2VHU2E1UGR2VVl0NjZzbWxGRXNQNGVsYW1xZ1JiQmtlXzVZbjNiTXZqbGVrNWcxMy1rdWMxdmhveWM3QjMxdTNIeG5fNXB5emhkR1c1N3hnSExGM05HeXpqT0gtWE1RS1F6akhTc0FMVTdsblQ5Umd2TEltd2dfU3BiOG4zelQ4R3Vqdk00LWJRcFpjcFZYak5mQXZNVXRvR0VuRmVfSXZtQVZucmhIRXFB?oc=5" target="_blank" rel="noopener">The 24 Hours When Oil Markets Went Wild</a></h3>
-        <p class="summary"><a href="https://news.google.com/rss/articles/CBMiigNBVV95cUxNMVdSOXpPdzM1VVlmazVhVkhpSWV6TTFDNE5DSkQtRGZwRjlraWJrWHhEekxORE1XM3QyVlRETzQ3blI5U0VXamVEaUhzWGFxUk0yTF9lSzVQYXhUTGRsV0FEdUJOTE4zWEJLY0FHS2lMdU9uMEhXV25jejB3cko5UFRaczZRRFRNbmx2eFB4RURodDVpalNjWUVrdFd0YW5zT1FubGhYUmZvY0NNMDNwMmlMenZudWFPTD</p>
+        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiwgNBVV95cUxNUDJfamQxZWF0dWFyUDRMVEstNWFDTDZWUDNYYzBDdlBENElkQ3ppdGtlVWluNUk1T1BNdS1KcDVNRFc3ZEZ4bm9ZMG0welRtMlhEam13ZGlkeUtNNmJ3RjduRVRpVGlmR3ZfYUpHYm4wT2ZZcWlVdTJ4cU5fRVZyTXlod0VYVEtaOWRscUxmcWFnX3ZpaVhCN1ppUFlyWXlqVHA5OEN5UDdnSUYwbjRjbktvQ3hoUWxqT2pQLXJuVXJhSHJKby1RNzVPb29hSU44TFA1eV90ZHB0RjNpWElrbHNGRENlbkZyNThFa1FNWWlIRnNJUFI4Sy1jMnUwY1ROYzloTXFUbnJCSk45VTVHdjIwWVlEdnZNNG1UQXpxbVNWNmlBbm42QUZjc29tQURIWHMtZ3M2Z1ZPS3VuX0JnTHdnR0xvakNhWHVCWUpRaWw4QjdXZkJieDFFT2lRMlMzR0ZCYzFDbTdkMXdQR2ExbXlHeGJvYXZrTm1UWFVIYXlDcF9zb1NYejlGNjEzdmVBSm1hYWJZSV9KcHJ4Ql9QUU9DTk1icHdaakVlSVVlZV9XVVBVOGJzVVdGS1F6OGdPM3c?oc=5" target="_blank" rel="noopener">Trump Advisers Urge Him to Find Iran Exit Ramp, Fearing Political Backlash</a></h3>
+        <p class="summary"><a href="https://news.google.com/rss/articles/CBMiwgNBVV95cUxNUDJfamQxZWF0dWFyUDRMVEstNWFDTDZWUDNYYzBDdlBENElkQ3ppdGtlVWluNUk1T1BNdS1KcDVNRFc3ZEZ4bm9ZMG0welRtMlhEam13ZGlkeUtNNmJ3RjduRVRpVGlmR3ZfYUpHYm4wT2ZZcWlVdTJ4cU5fRVZyTXlod0VYVEtaOWRscUxmcWFnX3ZpaVhCN1ppUFlyWXlqVHA5OEN5UDdnSUYwbjRjbktvQ3hoUWxqT2</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">Global oil markets remain volatile amid supply concerns. Investors are closely watching for further developments that could affect market stability.</p>
+          <p class="context-text">This story involves Iran and Trump.</p>
         </div>
         <footer class="meta">
           <span class="source" title="WSJ">WSJ</span>
-          <span class="time">20:47</span>
-          <a href="https://news.google.com/rss/articles/CBMiigNBVV95cUxNMVdSOXpPdzM1VVlmazVhVkhpSWV6TTFDNE5DSkQtRGZwRjlraWJrWHhEekxORE1XM3QyVlRETzQ3blI5U0VXamVEaUhzWGFxUk0yTF9lSzVQYXhUTGRsV0FEdUJOTE4zWEJLY0FHS2lMdU9uMEhXV25jejB3cko5UFRaczZRRFRNbmx2eFB4RURodDVpalNjWUVrdFd0YW5zT1FubGhYUmZvY0NNMDNwMmlMenZudWFPTDRBV0lJaHliWmRkQnNNZjVleXlJLXNpaV9SX0pCRE9FTGczdVZrY2VHU2E1UGR2VVl0NjZzbWxGRXNQNGVsYW1xZ1JiQmtlXzVZbjNiTXZqbGVrNWcxMy1rdWMxdmhveWM3QjMxdTNIeG5fNXB5emhkR1c1N3hnSExGM05HeXpqT0gtWE1RS1F6akhTc0FMVTdsblQ5Umd2TEltd2dfU3BiOG4zelQ4R3Vqdk00LWJRcFpjcFZYak5mQXZNVXRvR0VuRmVfSXZtQVZucmhIRXFB?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">02:34</span>
+          <a href="https://news.google.com/rss/articles/CBMiwgNBVV95cUxNUDJfamQxZWF0dWFyUDRMVEstNWFDTDZWUDNYYzBDdlBENElkQ3ppdGtlVWluNUk1T1BNdS1KcDVNRFc3ZEZ4bm9ZMG0welRtMlhEam13ZGlkeUtNNmJ3RjduRVRpVGlmR3ZfYUpHYm4wT2ZZcWlVdTJ4cU5fRVZyTXlod0VYVEtaOWRscUxmcWFnX3ZpaVhCN1ppUFlyWXlqVHA5OEN5UDdnSUYwbjRjbktvQ3hoUWxqT2pQLXJuVXJhSHJKby1RNzVPb29hSU44TFA1eV90ZHB0RjNpWElrbHNGRENlbkZyNThFa1FNWWlIRnNJUFI4Sy1jMnUwY1ROYzloTXFUbnJCSk45VTVHdjIwWVlEdnZNNG1UQXpxbVNWNmlBbm42QUZjc29tQURIWHMtZ3M2Z1ZPS3VuX0JnTHdnR0xvakNhWHVCWUpRaWw4QjdXZkJieDFFT2lRMlMzR0ZCYzFDbTdkMXdQR2ExbXlHeGJvYXZrTm1UWFVIYXlDcF9zb1NYejlGNjEzdmVBSm1hYWJZSV9KcHJ4Ql9QUU9DTk1icHdaakVlSVVlZV9XVVBVOGJzVVdGS1F6OGdPM3c?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -586,16 +627,16 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/germany-helps-procure-scarce-air-defense-missiles-for-ukraine" target="_blank" rel="noopener">Germany Helps Procure Scarce Air-Defense Missiles for Ukraine</a></h3>
-        <p class="summary">German Defense Minister Boris Pistorius has persuaded several European partners to club together to provide around 30 PAC-3 guided missiles for Ukraine’s Patriot air-defense systems to bolster dwindling stocks.</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/videos/2026-03-10/daybreak-europe-3-10-2026-video" target="_blank" rel="noopener">Trump Talks to Putin After Iran Market Panic, Insists 'I Have a Plan' | Daybreak Europe 3/10/2026</a></h3>
+        <p class="summary">On today's show, President Donald Trump said he could waive oil-related sanctions, have the US Navy escort tankers through the Strait of Hormuz and predicted on Monday that the war with Iran would resolve “very soon” as he confronted mounting economic and political pressure and days of dramatic...</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves Ukraine and Germany. Military tensions continue to evolve in the region. Investors are closely watching for further developments that could affect market stability. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+          <p class="context-text">This story involves Iran, US among others. The ongoing Iran-Israel conflict has entered its third week with no clear resolution. The Strait of Hormuz remains a critical chokepoint for global oil shipments. Investors are closely watching for further developments that could affect market stability. Diplomatic channels remain active as parties seek potential resolutions. The technology sector continues to face rapid changes and regulatory scrutiny. Sanctions policy remains a key tool in international relations.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">08:11</span>
-          <a href="https://www.bloomberg.com/news/articles/2026-03-10/germany-helps-procure-scarce-air-defense-missiles-for-ukraine" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">08:01</span>
+          <a href="https://www.bloomberg.com/news/videos/2026-03-10/daybreak-europe-3-10-2026-video" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -608,6 +649,25 @@
     <div class="story-grid">
       
       <article class="story-card" id="story-0">
+        <div class="card-header">
+          <span class="tag tag-essential">ESSENTIAL</span>
+          <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
+        </div>
+        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/climate/gasoline-oil-prices-iran.html" target="_blank" rel="noopener">Oil Prices Will Remain High as Iran War Continues</a></h3>
+        <p class="summary">While officials look for ways to ease oil shocks, experts say higher prices will likely persist until traffic through the Strait of Hormuz returns.</p>
+        <div class="context-block">
+          <span class="context-label">📖 Context</span>
+          <p class="context-text">This story involves Iran. The ongoing Iran-Israel conflict has entered its third week with no clear resolution. The Strait of Hormuz remains a critical chokepoint for global oil shipments. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+        </div>
+        <footer class="meta">
+          <span class="source" title="NYT">NYT</span>
+          <span class="time">22:29</span>
+          <a href="https://www.nytimes.com/2026/03/09/climate/gasoline-oil-prices-iran.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
+        </footer>
+      </article>
+
+
+      <article class="story-card" id="story-1">
         <div class="card-header">
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
@@ -626,59 +686,40 @@
       </article>
 
 
-      <article class="story-card" id="story-1">
-        <div class="card-header">
-          <span class="tag tag-standard">STANDARD</span>
-          <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
-        </div>
-        <h3 class="headline"><a href="https://www.nytimes.com/2026/03/09/nyregion/mamdani-response-bomb.html" target="_blank" rel="noopener">Mamdani Chooses His Words Carefully After Alleged Terror Attack</a></h3>
-        <p class="summary">Mayor Zohran Mamdani has been spare in his remarks following the attempted bombing at Gracie Mansion and arrests of two men who said they were motivated by ISIS.</p>
-        <div class="context-block">
-          <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves Mamdani. Military tensions continue to evolve in the region. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
-        </div>
-        <footer class="meta">
-          <span class="source" title="NYT">NYT</span>
-          <span class="time">01:01</span>
-          <a href="https://www.nytimes.com/2026/03/09/nyregion/mamdani-response-bomb.html" target="_blank" rel="noopener" class="read-more">Read more →</a>
-        </footer>
-      </article>
-
-
       <article class="story-card" id="story-2">
         <div class="card-header">
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/croatia-introduces-mandatory-basic-army-training-amid-russia-concerns" target="_blank" rel="noopener">Renewed Military Draft Sparks Surprise Interest Among Croatia’s Youth</a></h3>
-        <p class="summary">Croatia is resuming mandatory military training after nearly two decades, with the initial recruits joined by far more volunteers than officials were expecting.</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/germany-helps-procure-scarce-air-defense-missiles-for-ukraine" target="_blank" rel="noopener">Germany Helps Procure Scarce Air-Defense Missiles for Ukraine</a></h3>
+        <p class="summary">German Defense Minister Boris Pistorius has persuaded several European partners to club together to provide around 30 PAC-3 guided missiles for Ukraine’s Patriot air-defense systems to bolster dwindling stocks.</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">Military tensions continue to evolve in the region. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+          <p class="context-text">This story involves Ukraine and Germany. Military tensions continue to evolve in the region. Investors are closely watching for further developments that could affect market stability. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">07:00</span>
-          <a href="https://www.bloomberg.com/news/articles/2026-03-10/croatia-introduces-mandatory-basic-army-training-amid-russia-concerns" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">08:11</span>
+          <a href="https://www.bloomberg.com/news/articles/2026-03-10/germany-helps-procure-scarce-air-defense-missiles-for-ukraine" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
 
       <article class="story-card" id="story-3">
         <div class="card-header">
-          <span class="tag tag-standard">STANDARD</span>
+          <span class="tag tag-essential">ESSENTIAL</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/south-africa-plans-major-infrastructure-push-with-new-guarantee-fund" target="_blank" rel="noopener">South Africa Targets Infrastructure Deals With Guarantee Fund</a></h3>
-        <p class="summary">South Africa plans to rapidly expand a new credit-guarantee vehicle to support billions of dollars in infrastructure projects, from power-grid expansion and water systems to ports and freight rail.</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/trump-hints-at-early-end-to-iran-war-easing-oil-shock-concerns" target="_blank" rel="noopener">Trump Hints at Early End to Iran War, Easing Oil-Shock Concerns</a></h3>
+        <p class="summary">President Donald Trump on Monday said the US and Israel were making significant progress in their war on Iran and could end the conflict “very soon,” curtailing an oil-price surge.</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">Diplomatic channels remain active as parties seek potential resolutions. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+          <p class="context-text">This story involves Iran, Israel among others. The ongoing Iran-Israel conflict has entered its third week with no clear resolution. Oil markets are reacting to Trump administration policy signals. Investors are closely watching for further developments that could affect market stability. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">06:17</span>
-          <a href="https://www.bloomberg.com/news/articles/2026-03-10/south-africa-plans-major-infrastructure-push-with-new-guarantee-fund" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">07:47</span>
+          <a href="https://www.bloomberg.com/news/articles/2026-03-10/trump-hints-at-early-end-to-iran-war-easing-oil-shock-concerns" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -733,8 +774,8 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxQMzUxbWdFN3VkU2x4aEdwVmNLVUdrSFNPSDNoLWU1SWVTV0l0Y3RmVTJsUnZXY0hsdkVfdkN4TktBZzZZVnBxek9MdFV1T1FMNHlvR19OenVhYlhBd09KRUktTW13b3BGdFJVbnZrMXdDSlF4Mk1ibHZmT1ZBaHRLNzRfSVpweER3QTF5MEtTeHhyNWp6S21BT3Q2UGhiaGVZX0swcTlUWXVkaFRsdEkwTkZVei10VzRCWUhWWldCZ3MtOUs2OHVUS2tzYU16bi1ySXNBcXBhZEg0MjBVZ1Ffa1FNT01KaHlma21qY2tlUE96eFAxdWp6MjRyNTU3ajNCcHlQRDQ0Y2doUVNadU5QdU1iY1FFeElhbWtMTkdHb3BsdXdtc2s5VlM5X1NHWnZEblh1LS1RY0IwWFU1SEROWjRwUTlWRWE3R3ZuQ3FQZ2E2M3dQSndxZkRmTjJLWUdyQV9sYWlidnA1a09uTC1BRmNxS0E0eHdUWEZHa3RDOHZMTGtadW9vQTBia3hCbWlWTGRnVXBXSU53Qi1ULXlvTzExMGxycFk3M2FCNDlrTQ?oc=5" target="_blank" rel="noopener">Sturm Ruger Accuses Beretta of Attempting to Gain Control of Company</a></h3>
-        <p class="summary"><a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxQMzUxbWdFN3VkU2x4aEdwVmNLVUdrSFNPSDNoLWU1SWVTV0l0Y3RmVTJsUnZXY0hsdkVfdkN4TktBZzZZVnBxek9MdFV1T1FMNHlvR19OenVhYlhBd09KRUktTW13b3BGdFJVbnZrMXdDSlF4Mk1ibHZmT1ZBaHRLNzRfSVpweER3QTF5MEtTeHhyNWp6S21BT3Q2UGhiaGVZX0swcTlUWXVkaFRsdEkwTkZVei10VzRCWU</p>
+        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxQaDlZaGZNdzhfVzdUNWhaVERGSTdudTd3T0JxRm1IcmN3enA3MFdkdG14M21BbjhCSnJQc1NDcHFoOGhtanhINTN5VlJReThidlVwdGhTeV8xdXplWGhqODMwdnRVVGw3dTRyU3FLU0VMVTVtRmx3dTV2WDYyR0Y4WmczbFdweERWU29kREFnUGdJYzRsanRFS2lJa2preGFiRFlSQ3VlbFRFcVB1RkEydExWWGRRVDZ5Z1pEd0M5NVc0YVo4WHlFZ292eWxYWDlpVHFjYWI0SmhDTG53WTFIRlVnU1RrNV9LX0phYXltLUd1WEViTDRZQ1A4V3JwcG04S2xWbHBnbHBlUlM4N3JMQUEzUmYzdEozeW90QTR3SWgxQ0NadGVsMEJpaFY2eVJMQUpSWjF3VkxrQ0g4dlZmVktYS21yZnpuemZfTGpsenVTci1IQjUwNV8ydVNiQnFSVURTUHhTZ3AzTm50RndmRlU4LWF6NTIwR0pCNkpLZmFudG1tRlZZM21rTEZJWVJmV3FmUEUyUFlQV09aakJBVXVqeHRGb1NYU0JmR2hpdw?oc=5" target="_blank" rel="noopener">Sturm Ruger Accuses Beretta of Attempting to Gain Control of Company</a></h3>
+        <p class="summary"><a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxQaDlZaGZNdzhfVzdUNWhaVERGSTdudTd3T0JxRm1IcmN3enA3MFdkdG14M21BbjhCSnJQc1NDcHFoOGhtanhINTN5VlJReThidlVwdGhTeV8xdXplWGhqODMwdnRVVGw3dTRyU3FLU0VMVTVtRmx3dTV2WDYyR0Y4WmczbFdweERWU29kREFnUGdJYzRsanRFS2lJa2preGFiRFlSQ3VlbFRFcVB1RkEydExWWGRRVDZ5Z1</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
           <p class="context-text">The technology sector continues to face rapid changes and regulatory scrutiny.</p>
@@ -742,7 +783,7 @@
         <footer class="meta">
           <span class="source" title="WSJ">WSJ</span>
           <span class="time">06:33</span>
-          <a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxQMzUxbWdFN3VkU2x4aEdwVmNLVUdrSFNPSDNoLWU1SWVTV0l0Y3RmVTJsUnZXY0hsdkVfdkN4TktBZzZZVnBxek9MdFV1T1FMNHlvR19OenVhYlhBd09KRUktTW13b3BGdFJVbnZrMXdDSlF4Mk1ibHZmT1ZBaHRLNzRfSVpweER3QTF5MEtTeHhyNWp6S21BT3Q2UGhiaGVZX0swcTlUWXVkaFRsdEkwTkZVei10VzRCWUhWWldCZ3MtOUs2OHVUS2tzYU16bi1ySXNBcXBhZEg0MjBVZ1Ffa1FNT01KaHlma21qY2tlUE96eFAxdWp6MjRyNTU3ajNCcHlQRDQ0Y2doUVNadU5QdU1iY1FFeElhbWtMTkdHb3BsdXdtc2s5VlM5X1NHWnZEblh1LS1RY0IwWFU1SEROWjRwUTlWRWE3R3ZuQ3FQZ2E2M3dQSndxZkRmTjJLWUdyQV9sYWlidnA1a09uTC1BRmNxS0E0eHdUWEZHa3RDOHZMTGtadW9vQTBia3hCbWlWTGRnVXBXSU53Qi1ULXlvTzExMGxycFk3M2FCNDlrTQ?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxQaDlZaGZNdzhfVzdUNWhaVERGSTdudTd3T0JxRm1IcmN3enA3MFdkdG14M21BbjhCSnJQc1NDcHFoOGhtanhINTN5VlJReThidlVwdGhTeV8xdXplWGhqODMwdnRVVGw3dTRyU3FLU0VMVTVtRmx3dTV2WDYyR0Y4WmczbFdweERWU29kREFnUGdJYzRsanRFS2lJa2preGFiRFlSQ3VlbFRFcVB1RkEydExWWGRRVDZ5Z1pEd0M5NVc0YVo4WHlFZ292eWxYWDlpVHFjYWI0SmhDTG53WTFIRlVnU1RrNV9LX0phYXltLUd1WEViTDRZQ1A4V3JwcG04S2xWbHBnbHBlUlM4N3JMQUEzUmYzdEozeW90QTR3SWgxQ0NadGVsMEJpaFY2eVJMQUpSWjF3VkxrQ0g4dlZmVktYS21yZnpuemZfTGpsenVTci1IQjUwNV8ydVNiQnFSVURTUHhTZ3AzTm50RndmRlU4LWF6NTIwR0pCNkpLZmFudG1tRlZZM21rTEZJWVJmV3FmUEUyUFlQV09aakJBVXVqeHRGb1NYU0JmR2hpdw?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -752,8 +793,8 @@
           <span class="tag tag-breaking">BREAKING</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxNS1IyYUstRHpoTk5rd29SeDRvdE05MDdwVWk3R09BS1hncy0zY1pGbWltbmg1THBhUGpNZHdOc254eGdNNlVwc3NXZm1hYmtmdDRna19lZkJMLU9wZUtfSzZtamN6MWwxZERtRUVybG5Jek42eFdGNGpyLXFQOWlMaE9SWlBuYmxXcDJiZlo3Z2lLbVJlak9Kc08yLVZnaTBFc3Foc3psU3ZEMnZLRVBJYWtKQ1l4dGx3YXozbzRHWm1CS255NjNpZ0xWVnpEQXljOHJzTGJMQ2dmUW5HQ215cWVsYnR1R0ZJZV82WUs5YWR4VVphZ0JhclRwMmowOFNfQS1MX1psMDRXdzFWVGdzOVpjeWlrTDU4NlkyeUFJS1lkdmxVcUNzRm1JaHdraHc3ZTN6Y2d6UWpxNUdoZGJlRHdzTzdIVjFZZ21rMW14eXRmVWNqTUlUc1BFdE1yaHJSeWpaZDQ0b1FmdmF0WHNLdFNVUHpqOExKWEJ4dUFId0lFN2pUWThXcGt6dERzNmY4TmVHeWxvSEprZ0Q0bTY4SUNYSEsyY1haWEh6T0ZjWmpEdTdwWWE0X0FB?oc=5" target="_blank" rel="noopener">Exclusive | Trump Sons Back New Drone Company Targeting Pentagon Sales</a></h3>
-        <p class="summary"><a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxNS1IyYUstRHpoTk5rd29SeDRvdE05MDdwVWk3R09BS1hncy0zY1pGbWltbmg1THBhUGpNZHdOc254eGdNNlVwc3NXZm1hYmtmdDRna19lZkJMLU9wZUtfSzZtamN6MWwxZERtRUVybG5Jek42eFdGNGpyLXFQOWlMaE9SWlBuYmxXcDJiZlo3Z2lLbVJlak9Kc08yLVZnaTBFc3Foc3psU3ZEMnZLRVBJYWtKQ1l4dGx3YX</p>
+        <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxPendORzdKYWlfT2UwVXdmeFFZQ2h0LTk5d1pRRzV3VDhfVkVzYzhsZnl4SEpDOU4zUFBmSk1LdHBsaU9lckNNV1VxbFVzTWtmMUNCRmNheWVKeFI1QXhLNkVVdmkxb0I1bzFQS1I3R1hCLW1OYmNjMWhaSGxiY2tkNkFMUnh5OExDLWxDSGxtcTZSTktuWk5aRU5aOUk5cFp0N1RIWmUwc0lNUWtoSGplLV9Ub01abVkzQ19YN19XUHp5UjYxLUpVNmJjQmdvXzZLZGYxZEl0cjdOQy1jLTJKTjlxWUdkQ01Kd0ZhV05TOVRqR0NCZTVOQW1EMzZJWjBhQ2dMQ1hiTzkxZHhPbnFRSWZqemp0VzRwLUVOempqOEVRSVJCbk5EbWV6enV5cTZLR0daWGx3NjNhQk5iSjN6azBQbjRwejc0VHZWSGZENVNneXZCZDYwNk1ZWUotcXZOeXZ4Vm5yb29ZWmhwcEd3NFU5YWJFYWtZQ1Fxajl5U1ZJU0RSOG91RTQ4ZVBVQjZUeE5rNld2T013Q1gwWkh0bm8tOWxiX2otdEdyTXU5SDRCTFh0RFhOeWNR?oc=5" target="_blank" rel="noopener">Exclusive | Trump Sons Back New Drone Company Targeting Pentagon Sales</a></h3>
+        <p class="summary"><a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxPendORzdKYWlfT2UwVXdmeFFZQ2h0LTk5d1pRRzV3VDhfVkVzYzhsZnl4SEpDOU4zUFBmSk1LdHBsaU9lckNNV1VxbFVzTWtmMUNCRmNheWVKeFI1QXhLNkVVdmkxb0I1bzFQS1I3R1hCLW1OYmNjMWhaSGxiY2tkNkFMUnh5OExDLWxDSGxtcTZSTktuWk5aRU5aOUk5cFp0N1RIWmUwc0lNUWtoSGplLV9Ub01abVkzQ1</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
           <p class="context-text">This story involves Pentagon and Trump. Military tensions continue to evolve in the region.</p>
@@ -761,7 +802,7 @@
         <footer class="meta">
           <span class="source" title="WSJ">WSJ</span>
           <span class="time">12:21</span>
-          <a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxNS1IyYUstRHpoTk5rd29SeDRvdE05MDdwVWk3R09BS1hncy0zY1pGbWltbmg1THBhUGpNZHdOc254eGdNNlVwc3NXZm1hYmtmdDRna19lZkJMLU9wZUtfSzZtamN6MWwxZERtRUVybG5Jek42eFdGNGpyLXFQOWlMaE9SWlBuYmxXcDJiZlo3Z2lLbVJlak9Kc08yLVZnaTBFc3Foc3psU3ZEMnZLRVBJYWtKQ1l4dGx3YXozbzRHWm1CS255NjNpZ0xWVnpEQXljOHJzTGJMQ2dmUW5HQ215cWVsYnR1R0ZJZV82WUs5YWR4VVphZ0JhclRwMmowOFNfQS1MX1psMDRXdzFWVGdzOVpjeWlrTDU4NlkyeUFJS1lkdmxVcUNzRm1JaHdraHc3ZTN6Y2d6UWpxNUdoZGJlRHdzTzdIVjFZZ21rMW14eXRmVWNqTUlUc1BFdE1yaHJSeWpaZDQ0b1FmdmF0WHNLdFNVUHpqOExKWEJ4dUFId0lFN2pUWThXcGt6dERzNmY4TmVHeWxvSEprZ0Q0bTY4SUNYSEsyY1haWEh6T0ZjWmpEdTdwWWE0X0FB?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxPendORzdKYWlfT2UwVXdmeFFZQ2h0LTk5d1pRRzV3VDhfVkVzYzhsZnl4SEpDOU4zUFBmSk1LdHBsaU9lckNNV1VxbFVzTWtmMUNCRmNheWVKeFI1QXhLNkVVdmkxb0I1bzFQS1I3R1hCLW1OYmNjMWhaSGxiY2tkNkFMUnh5OExDLWxDSGxtcTZSTktuWk5aRU5aOUk5cFp0N1RIWmUwc0lNUWtoSGplLV9Ub01abVkzQ19YN19XUHp5UjYxLUpVNmJjQmdvXzZLZGYxZEl0cjdOQy1jLTJKTjlxWUdkQ01Kd0ZhV05TOVRqR0NCZTVOQW1EMzZJWjBhQ2dMQ1hiTzkxZHhPbnFRSWZqemp0VzRwLUVOempqOEVRSVJCbk5EbWV6enV5cTZLR0daWGx3NjNhQk5iSjN6azBQbjRwejc0VHZWSGZENVNneXZCZDYwNk1ZWUotcXZOeXZ4Vm5yb29ZWmhwcEd3NFU5YWJFYWtZQ1Fxajl5U1ZJU0RSOG91RTQ4ZVBVQjZUeE5rNld2T013Q1gwWkh0bm8tOWxiX2otdEdyTXU5SDRCTFh0RFhOeWNR?oc=5" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -835,16 +876,16 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/billionaire-czech-premier-shrugs-off-defense-calls-to-focus-on-health" target="_blank" rel="noopener">Billionaire Czech Premier Shrugs Off Defense Calls to Focus on Health</a></h3>
-        <p class="summary">As Russia’s war in Ukraine rages to the east and the US piles on pressure to spend more on the military, Czech Prime Minister Andrej Babis has been focusing on a very different agenda.</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/swiss-arms-exports-jump-as-european-defense-spending-booms" target="_blank" rel="noopener">Swiss Arms Exports Jump as European Defense Spending Booms</a></h3>
+        <p class="summary">Swiss arms shipments abroad neared an all-time high last year as European defense spending boomed, in a rebound for an industry that feared extinction over the country’s strict export rules.</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves US, Russia among others. Military tensions continue to evolve in the region. The technology sector continues to face rapid changes and regulatory scrutiny.</p>
+          <p class="context-text">Consumer trends reflect evolving economic and social factors.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">05:00</span>
-          <a href="https://www.bloomberg.com/news/articles/2026-03-10/billionaire-czech-premier-shrugs-off-defense-calls-to-focus-on-health" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">08:00</span>
+          <a href="https://www.bloomberg.com/news/articles/2026-03-10/swiss-arms-exports-jump-as-european-defense-spending-booms" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -892,16 +933,16 @@
           <span class="tag tag-standard">STANDARD</span>
           <span class="summary-note" title="Summary based on RSS feed, not full article">📝 RSS Summary</span>
         </div>
-        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/lego-to-expand-in-us-as-robust-spending-eclipses-iran-war-risks" target="_blank" rel="noopener">Lego to Expand in US as Robust Spending Eclipses Iran Risks</a></h3>
-        <p class="summary">Lego A/S, best known for toys using interlocking plastic bricks, plans to step up investing in the US, undeterred by the political risks from the Iran war.</p>
+        <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-10/india-prioritizes-households-as-it-redirects-lpg-from-refiners" target="_blank" rel="noopener">India Prioritizes Households as It Redirects LPG From Refiners</a></h3>
+        <p class="summary">India has invoked emergency powers to redirect supplies of liquefied petroleum gas away from industrial users to households, as it seeks to shield ordinary people from the impact of the Middle East war.</p>
         <div class="context-block">
           <span class="context-label">📖 Context</span>
-          <p class="context-text">This story involves Iran and US. The ongoing Iran-Israel conflict has entered its third week with no clear resolution.</p>
+          <p class="context-text">Military tensions continue to evolve in the region. Global oil markets remain volatile amid supply concerns.</p>
         </div>
         <footer class="meta">
           <span class="source" title="Bloomberg">Bloomberg</span>
-          <span class="time">08:00</span>
-          <a href="https://www.bloomberg.com/news/articles/2026-03-10/lego-to-expand-in-us-as-robust-spending-eclipses-iran-war-risks" target="_blank" rel="noopener" class="read-more">Read more →</a>
+          <span class="time">07:55</span>
+          <a href="https://www.bloomberg.com/news/articles/2026-03-10/india-prioritizes-households-as-it-redirects-lpg-from-refiners" target="_blank" rel="noopener" class="read-more">Read more →</a>
         </footer>
       </article>
 
@@ -911,7 +952,7 @@
     
     <!-- Footer -->
     <footer class="site-footer">
-      <p>Generated by AI · 2026-03-10 16:34 UTC</p>
+      <p>Generated by AI · 2026-03-10 16:39 UTC</p>
       <p>Sources: Bloomberg Asia · Financial Times · New York Times · Washington Post · WSJ</p>
       <p style="opacity: 0.7;">Summaries for reference only. Click links for full articles.</p>
     </footer>
