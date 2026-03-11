@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily News Digest — 2026年03月11日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3eee5;
+      --bg-layer: #e9dfcf;
+      --text-headline: #1a1714;
+      --text-body: #4a4540;
+      --text-meta: #8a8075;
+      --tag-breaking: #b31e24;
+      --tag-essential: #8a5c0a;
+      --tag-context: #1a5a5c;
+      --tag-standard: #6b7280;
+      --border: #d4cfc7;
+      --accent: #5b3a29;
+      --source-bg: #e8e4dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Serif 4', serif;
+      background:
+        radial-gradient(1200px 400px at 20% -10%, var(--bg-layer), transparent 70%),
+        radial-gradient(900px 300px at 90% 0%, #efe6d9, transparent 70%),
+        var(--bg);
+      color: var(--text-body);
+      line-height: 1.6;
+      padding: 1.5rem 1rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .masthead {
+      text-align: center;
+      padding: 1.25rem 1rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, #faf7f2 0%, #f4ecdf 100%);
+      box-shadow: 0 8px 24px rgba(60, 40, 20, 0.08);
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .masthead::before {
+      content: '';
+      position: absolute;
+      left: -20%;
+      top: -65%;
+      width: 60%;
+      height: 180%;
+      background: rgba(91,58,41,0.06);
+      transform: rotate(16deg);
+    }
+    .masthead h1 {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      letter-spacing: 0.5px;
+      font-weight: 700;
+      color: var(--text-headline);
+      margin-bottom: 0.35rem;
+    }
+    .masthead .date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text-meta);
+    }
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .section-nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-meta);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .section-nav a:hover { color: var(--text-headline); }
+    .news-section { margin-bottom: 2rem; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.62rem;
+      font-weight: 700;
+      color: var(--text-headline);
+      padding: 0.45rem 0.7rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(90deg, #f2e9db 0%, transparent 90%);
+      border-radius: 6px;
+    }
+    .section-title .zh-name {
+      font-size: 0.875rem;
+      color: var(--text-meta);
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+    .section-title .count {
+      font-size: 0.8rem;
+      color: var(--text-meta);
+      margin-left: 0.35rem;
+      font-weight: 400;
+    }
+    .story-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    .story-card {
+      background: #faf7f2;
+      border: 1px solid var(--border);
+      padding: 0.9rem;
+    }
+    .card-main {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .left-col, .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .right-col:empty { display: none; }
+    .card-header {
+      display: flex;
+      gap: 0.375rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.5625rem;
+      font-weight: 600;
+      padding: 0.125rem 0.3125rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+    .tag-breaking { background: var(--tag-breaking); color: #fff; }
+    .tag-essential { background: var(--tag-essential); color: #fff; }
+    .tag-context { background: var(--tag-context); color: #fff; }
+    .tag-standard { background: var(--tag-standard); color: #fff; }
+        .source-full {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-meta);
+    }
+    .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .headline a {
+      color: var(--text-headline);
+      text-decoration: none;
+    }
+    .headline a:hover { text-decoration: underline; }
+    .summary {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      min-height: 3.2em;
+    }
+    .meta {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-meta);
+      padding-top: 0.625rem;
+      border-top: 1px solid var(--border);
+    }
+    .source-meta {
+      font-weight: 600;
+      color: var(--text-headline);
+    }
+    .read-more {
+      margin-left: auto;
+      color: var(--text-headline);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .read-more:hover { text-decoration: underline; }
+    .site-footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-top: 2px solid var(--text-headline);
+      margin-top: 2rem;
+    }
+    .site-footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-meta);
+      margin: 0.25rem 0;
+    }
+    @media (max-width: 768px) {
+      .masthead h1 { font-size: 2rem; }
+      .card-main { grid-template-columns: 1fr; }
+      .section-nav { flex-direction: column; align-items: center; }
+      .section-title { font-size: 1.25rem; }
+      .headline { font-size: 1rem; -webkit-line-clamp: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="masthead">
+      <h1>The Dispatch</h1>
+      <p class="date">Wednesday, March 11, 2026 · 30 stories · Past 24h</p>
+
+    </header>
+    <nav class="section-nav">
+      <a href="#politics">Politics</a>
+      <a href="#energy">Energy</a>
+      <a href="#macro">Macro</a>
+      <a href="#tech">AI & Tech</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#consumer">Consumer</a>
+    </nav>
+    
+  <section id="politics" class="news-section">
+    <h2 class="section-title">Politics & Conflict <span class="zh-name">政治与冲突</span> <span class="count">(7)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.nytimes.com/2026/03/11/world/europe/ukraine-drones-china.html" target="_blank" rel="noopener">Ukraine Can Now Manufacture ‘China-Free’ Drones</a></h3>
+            <div class="source-full">NYT</div>
+            <footer class="meta">
+              <span class="source-meta">NYT</span>
+              <span class="time">04:01</span>
+              <a href="https://www.nytimes.com/2026/03/11/world/europe/ukraine-drones-china.html" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Ukraine Can Now Manufacture ‘China-Free’ Drones URL Source: Published Time: 2026-03-11T04:01:05.940Z Markdown Content: Advertisement SKIP ADVERTISEMENT Ukraine Reaches a Milestone: Making ‘China-Free’ Drones ------------------------------------------------------- The co...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/opinion/newsletters/2026-03-11/iran-can-t-let-trump-have-his-taco-and-walk-away" target="_blank" rel="noopener">Iran Can’t Let Trump Have His TACO and Walk Away</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">04:00</span>
+              <a href="https://www.bloomberg.com/opinion/newsletters/2026-03-11/iran-can-t-let-trump-have-his-taco-and-walk-away" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Iran Can’t Let Trump Have His TACO and Walk Away URL Source: https://www.bloomberg.com/opinion/newsletters/2026-03-11/iran-can-t-let-trump-have-his-taco-and-walk-away Published Time: 2026-03-11T04:00:05.503Z Markdown Content: Iran Can’t Let Trump Have His TACO and Walk...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/iran-war-drives-key-japanese-aluminum-fee-to-highest-since-2015" target="_blank" rel="noopener">Iran War Drives Key Japanese Aluminum Fee to Highest Since 2015</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:58</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/iran-war-drives-key-japanese-aluminum-fee-to-highest-since-2015" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Iran War Drives Key Japanese Aluminum Fee to Highest Since 2015 URL Source: https://www.bloomberg.com/news/articles/2026-03-11/iran-war-drives-key-japanese-aluminum-fee-to-highest-since-2015 Published Time: 2026-03-11T03:58:58.804Z Markdown Content: Iran War Drives Key...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/japan-5-year-bond-sale-sees-firmer-demand-than-12-month-average-mmlhrslz" target="_blank" rel="noopener">Japan Five-Year Bond Sale Sees Firm Demand as BOJ Path Clouded</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:41</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/japan-5-year-bond-sale-sees-firmer-demand-than-12-month-average-mmlhrslz" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Japan 5-Year Bond Sale Sees Firmer Demand Than 12-Month Average URL Source: https://www.bloomberg.com/news/articles/2026-03-11/japan-5-year-bond-sale-sees-firmer-demand-than-12-month-average-mmlhrslz Published Time: 2026-03-11T03:41:00.067Z Markdown Content: Japan 5-Yea...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-4">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/aluminum-fluctuates-as-iran-war-continues-to-disrupt-trade-flows" target="_blank" rel="noopener">Aluminum Fluctuates as Iran War Continues to Disrupt Trade Flows</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">02:50</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/aluminum-fluctuates-as-iran-war-continues-to-disrupt-trade-flows" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Aluminum Fluctuates as Iran War Continues to Disrupt Trade Flows URL Source: https://www.bloomberg.com/news/articles/2026-03-11/aluminum-fluctuates-as-iran-war-continues-to-disrupt-trade-flows Published Time: 2026-03-11T02:50:33.322Z Markdown Content: Aluminum Fluctuate...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-5">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.washingtonpost.com/world/2026/03/10/dubai-gulf-iran-war-strikes/" target="_blank" rel="noopener">UAE, an oasis for business and partying, faces war</a></h3>
+            <div class="source-full">WaPo</div>
+            <footer class="meta">
+              <span class="source-meta">WaPo</span>
+              <span class="time">02:23</span>
+              <a href="https://www.washingtonpost.com/world/2026/03/10/dubai-gulf-iran-war-strikes/" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: UAE, an oasis for business and partying, faces war URL Source: https://www.washingtonpost.com/world/2026/03/10/dubai-gulf-iran-war-strikes/ Published Time: 2026-03-10T08:30:14.770Z Markdown Content: As Dubai reels from war and airstrikes, some choose to party on - The W...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-6">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/vietnam-taps-fuel-fund-to-steady-prices-amid-risks-of-shortages" target="_blank" rel="noopener">Vietnam Taps Fuel Fund to Steady Prices Amid Risks of Shortages</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">02:02</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/vietnam-taps-fuel-fund-to-steady-prices-amid-risks-of-shortages" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Vietnam Taps Fuel Fund to Steady Prices Amid Risks of Shortages URL Source: https://www.bloomberg.com/news/articles/2026-03-11/vietnam-taps-fuel-fund-to-steady-prices-amid-risks-of-shortages Published Time: 2026-03-11T02:02:11.169Z Markdown Content: Vietnam Taps Fuel Fu...</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="energy" class="news-section">
+    <h2 class="section-title">Energy & Resources <span class="zh-name">能源与资源</span> <span class="count">(5)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.nytimes.com/2026/03/10/us/politics/how-trump-miscalculated-iran-response.html" target="_blank" rel="noopener">How Trump and His Advisers Miscalculated Iran’s Response to War</a></h3>
+            <div class="source-full">NYT</div>
+            <footer class="meta">
+              <span class="source-meta">NYT</span>
+              <span class="time">03:15</span>
+              <a href="https://www.nytimes.com/2026/03/10/us/politics/how-trump-miscalculated-iran-response.html" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: How Trump and His Advisers Miscalculated Iran’s Response to War URL Source: Published Time: 2026-03-11T01:06:02.000Z Markdown Content: Advertisement SKIP ADVERTISEMENT In the lead-up to the U.S.-Israeli attack, President Trump downplayed the risks to the energy markets...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/china-stocks-emerge-as-unlikely-winner-as-oil-prices-spike-on-iran-war" target="_blank" rel="noopener">China Emerges as Unlikely Haven as Oil Price Shock Hits Global Markets</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:12</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/china-stocks-emerge-as-unlikely-winner-as-oil-prices-spike-on-iran-war" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: China Emerges as Unlikely Haven as Oil Price Shock Hits Global Markets URL Source: https://www.bloomberg.com/news/articles/2026-03-11/china-stocks-emerge-as-unlikely-winner-as-oil-prices-spike-on-iran-war Published Time: 2026-03-11T03:12:37.614Z Markdown Content: China...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/aussie-emerges-as-unlikely-haven-on-yields-high-energy-prices" target="_blank" rel="noopener">Aussie Emerges as Unlikely Haven on Yields, High Energy Prices</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">02:36</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/aussie-emerges-as-unlikely-haven-on-yields-high-energy-prices" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Aussie Emerges as Unlikely Haven on Yields, High Energy Prices URL Source: https://www.bloomberg.com/news/articles/2026-03-11/aussie-emerges-as-unlikely-haven-on-yields-high-energy-prices Published Time: 2026-03-11T02:36:23.012Z Markdown Content: Australian Dollar Hits...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/china-s-energy-security-push-pays-off-as-war-roils-asia-refiners" target="_blank" rel="noopener">China’s Energy Security Push Pays Off as War Roils Asia Refiners</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">02:23</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/china-s-energy-security-push-pays-off-as-war-roils-asia-refiners" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: China’s Energy Security Push Pays Off as War Roils Asia Refiners URL Source: https://www.bloomberg.com/news/articles/2026-03-11/china-s-energy-security-push-pays-off-as-war-roils-asia-refiners Published Time: 2026-03-11T02:23:35.331Z Markdown Content: China’s Energy Sec...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-4">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/vietnam-taps-fuel-fund-to-steady-prices-amid-risks-of-shortages" target="_blank" rel="noopener">Vietnam Taps Fuel Fund to Steady Prices Amid Risks of Shortages</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">02:02</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/vietnam-taps-fuel-fund-to-steady-prices-amid-risks-of-shortages" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Vietnam Taps Fuel Fund to Steady Prices Amid Risks of Shortages URL Source: https://www.bloomberg.com/news/articles/2026-03-11/vietnam-taps-fuel-fund-to-steady-prices-amid-risks-of-shortages Published Time: 2026-03-11T02:02:11.169Z Markdown Content: Vietnam Taps Fuel Fu...</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="macro" class="news-section">
+    <h2 class="section-title">Macro & Markets <span class="zh-name">宏观与市场</span> <span class="count">(6)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/opinion/newsletters/2026-03-11/iran-can-t-let-trump-have-his-taco-and-walk-away" target="_blank" rel="noopener">Iran Can’t Let Trump Have His TACO and Walk Away</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">04:00</span>
+              <a href="https://www.bloomberg.com/opinion/newsletters/2026-03-11/iran-can-t-let-trump-have-his-taco-and-walk-away" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Iran Can’t Let Trump Have His TACO and Walk Away URL Source: https://www.bloomberg.com/opinion/newsletters/2026-03-11/iran-can-t-let-trump-have-his-taco-and-walk-away Published Time: 2026-03-11T04:00:05.503Z Markdown Content: Iran Can’t Let Trump Have His TACO and Walk...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxNWDU1SXlGWU4tdXhCR1pDOTM5ZEpLU2E4TjlRR2JHaXVMZHZtSmh5aXhlWXRpM1dQZ0lHa0FSZzUzY0JteWI2Z1BlR3RjTkRsVWJ4ZVdCbjVyeEtnNDJ2NWo3dGtucElLdkNRUUhlUWdzamNucGtXWTdJOF81LTA1emU4MDYybGo2SlBZcERQX3JMaE9Zb0F4SzFWMFdpLXNTZ25POGxTbVBFSkZ0c3BOeVRaMzZpWmJuLVBNaE1KZnAyWjlPODZGbll4MjhsLUE4RnVObkpuOGVOaHNNejZnZWlCdW1tT2luTWJIVmxkemxuVVBXYmJnajBRaDdEdDJFTGRJZU5tTHNVRktDeVBFZ0FsMzYtT2hvLXJIa0FURkdvcVdQMU53dWFjOGtvUHdFR2ZPdVhNeXNXMW9nU0ZMcnk4NjN3MF9wVS1MaFVxa1laanpIRDFMMmpJcXNHajhtVnAzeHhHQQ?oc=5" target="_blank" rel="noopener">Print Edition | Wall Street Journal</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">03:43</span>
+              <a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxNWDU1SXlGWU4tdXhCR1pDOTM5ZEpLU2E4TjlRR2JHaXVMZHZtSmh5aXhlWXRpM1dQZ0lHa0FSZzUzY0JteWI2Z1BlR3RjTkRsVWJ4ZVdCbjVyeEtnNDJ2NWo3dGtucElLdkNRUUhlUWdzamNucGtXWTdJOF81LTA1emU4MDYybGo2SlBZcERQX3JMaE9Zb0F4SzFWMFdpLXNTZ25POGxTbVBFSkZ0c3BOeVRaMzZpWmJuLVBNaE1KZnAyWjlPODZGbll4MjhsLUE4RnVObkpuOGVOaHNNejZnZWlCdW1tT2luTWJIVmxkemxuVVBXYmJnajBRaDdEdDJFTGRJZU5tTHNVRktDeVBFZ0FsMzYtT2hvLXJIa0FURkdvcVdQMU53dWFjOGtvUHdFR2ZPdVhNeXNXMW9nU0ZMcnk4NjN3MF9wVS1MaFVxa1laanpIRDFMMmpJcXNHajhtVnAzeHhHQQ?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/videos/2026-03-11/why-is-china-embracing-openclaw-video" target="_blank" rel="noopener">Why Is China Embracing OpenClaw?</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:18</span>
+              <a href="https://www.bloomberg.com/news/videos/2026-03-11/why-is-china-embracing-openclaw-video" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Watch Why Is China Embracing OpenClaw? - Bloomberg URL Source: https://www.bloomberg.com/news/videos/2026-03-11/why-is-china-embracing-openclaw-video Published Time: Mar 11th, 2026 Markdown Content: Watch Why Is China Embracing OpenClaw? - Bloomberg =============== [Ski...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.nytimes.com/2026/03/10/us/politics/how-trump-miscalculated-iran-response.html" target="_blank" rel="noopener">How Trump and His Advisers Miscalculated Iran’s Response to War</a></h3>
+            <div class="source-full">NYT</div>
+            <footer class="meta">
+              <span class="source-meta">NYT</span>
+              <span class="time">03:15</span>
+              <a href="https://www.nytimes.com/2026/03/10/us/politics/how-trump-miscalculated-iran-response.html" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: How Trump and His Advisers Miscalculated Iran’s Response to War URL Source: Published Time: 2026-03-11T01:06:02.000Z Markdown Content: Advertisement SKIP ADVERTISEMENT In the lead-up to the U.S.-Israeli attack, President Trump downplayed the risks to the energy markets...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-4">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/china-stocks-emerge-as-unlikely-winner-as-oil-prices-spike-on-iran-war" target="_blank" rel="noopener">China Emerges as Unlikely Haven as Oil Price Shock Hits Global Markets</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:12</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/china-stocks-emerge-as-unlikely-winner-as-oil-prices-spike-on-iran-war" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: China Emerges as Unlikely Haven as Oil Price Shock Hits Global Markets URL Source: https://www.bloomberg.com/news/articles/2026-03-11/china-stocks-emerge-as-unlikely-winner-as-oil-prices-spike-on-iran-war Published Time: 2026-03-11T03:12:37.614Z Markdown Content: China...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-5">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/prabowo-s-free-meals-plan-draws-court-challenge-by-civil-groups" target="_blank" rel="noopener">Prabowo’s Free Meals Plan Draws Court Challenge by Civil Groups</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">02:57</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/prabowo-s-free-meals-plan-draws-court-challenge-by-civil-groups" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Prabowo’s Free Meals Plan Draws Court Challenge by Civil Groups URL Source: https://www.bloomberg.com/news/articles/2026-03-11/prabowo-s-free-meals-plan-draws-court-challenge-by-civil-groups Published Time: 2026-03-11T02:57:48.921Z Markdown Content: Prabowo’s Free Meals...</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="tech" class="news-section">
+    <h2 class="section-title">AI & Technology <span class="zh-name">AI 与科技</span> <span class="count">(5)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.nytimes.com/2026/03/11/world/europe/ukraine-drones-china.html" target="_blank" rel="noopener">Ukraine Can Now Manufacture ‘China-Free’ Drones</a></h3>
+            <div class="source-full">NYT</div>
+            <footer class="meta">
+              <span class="source-meta">NYT</span>
+              <span class="time">04:01</span>
+              <a href="https://www.nytimes.com/2026/03/11/world/europe/ukraine-drones-china.html" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Ukraine Can Now Manufacture ‘China-Free’ Drones URL Source: Published Time: 2026-03-11T04:01:05.940Z Markdown Content: Advertisement SKIP ADVERTISEMENT Ukraine Reaches a Milestone: Making ‘China-Free’ Drones ------------------------------------------------------- The co...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/pakistan-says-will-be-there-before-it-is-needed-for-saudi-arabia" target="_blank" rel="noopener">Pakistan Says Will Be There Before It Is Needed for Saudi Arabia</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:58</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/pakistan-says-will-be-there-before-it-is-needed-for-saudi-arabia" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Bloomberg - Are you a robot? URL Source: Warning: Target URL returned error 403: Forbidden Warning: This page maybe not yet fully loaded, consider explicitly specify a timeout. Warning: This page maybe requiring CAPTCHA, please make sure you are authorized to access thi...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/japan-5-year-bond-sale-sees-firmer-demand-than-12-month-average-mmlhrslz" target="_blank" rel="noopener">Japan Five-Year Bond Sale Sees Firm Demand as BOJ Path Clouded</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:41</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/japan-5-year-bond-sale-sees-firmer-demand-than-12-month-average-mmlhrslz" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Japan 5-Year Bond Sale Sees Firmer Demand Than 12-Month Average URL Source: https://www.bloomberg.com/news/articles/2026-03-11/japan-5-year-bond-sale-sees-firmer-demand-than-12-month-average-mmlhrslz Published Time: 2026-03-11T03:41:00.067Z Markdown Content: Japan 5-Yea...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/videos/2026-03-11/why-is-china-embracing-openclaw-video" target="_blank" rel="noopener">Why Is China Embracing OpenClaw?</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:18</span>
+              <a href="https://www.bloomberg.com/news/videos/2026-03-11/why-is-china-embracing-openclaw-video" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Watch Why Is China Embracing OpenClaw? - Bloomberg URL Source: https://www.bloomberg.com/news/videos/2026-03-11/why-is-china-embracing-openclaw-video Published Time: Mar 11th, 2026 Markdown Content: Watch Why Is China Embracing OpenClaw? - Bloomberg =============== [Ski...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-4">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.ft.com/content/658c8411-df02-4b5e-a69d-2029114e4ca1" target="_blank" rel="noopener">Iran war lifts K-defence company offering cheap Patriot rival</a></h3>
+            <div class="source-full">FT</div>
+            <footer class="meta">
+              <span class="source-meta">FT</span>
+              <span class="time">03:11</span>
+              <a href="https://www.ft.com/content/658c8411-df02-4b5e-a69d-2029114e4ca1" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Iran war lifts K-defence company offering cheap Patriot rival URL Source: https://www.ft.com/content/658c8411-df02-4b5e-a69d-2029114e4ca1 Published Time: 2026-03-11T03:11:51.801Z Markdown Content: Subscribe to read =============== [Accessibility help](https://www.</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="corporate" class="news-section">
+    <h2 class="section-title">Corporate <span class="zh-name">企业动态</span> <span class="count">(4)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.ft.com/content/658c8411-df02-4b5e-a69d-2029114e4ca1" target="_blank" rel="noopener">Iran war lifts K-defence company offering cheap Patriot rival</a></h3>
+            <div class="source-full">FT</div>
+            <footer class="meta">
+              <span class="source-meta">FT</span>
+              <span class="time">03:11</span>
+              <a href="https://www.ft.com/content/658c8411-df02-4b5e-a69d-2029114e4ca1" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Iran war lifts K-defence company offering cheap Patriot rival URL Source: https://www.ft.com/content/658c8411-df02-4b5e-a69d-2029114e4ca1 Published Time: 2026-03-11T03:11:51.801Z Markdown Content: Subscribe to read =============== [Accessibility help](https://www.</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/haleon-ceo-targets-china-india-growth-with-new-plant-m-a-push" target="_blank" rel="noopener">Haleon CEO Targets China, India Growth With New Plant, M&amp;amp;A Push</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">01:19</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/haleon-ceo-targets-china-india-growth-with-new-plant-m-a-push" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Haleon CEO Targets China, India Growth With New Plant, M&amp;A Push URL Source: https://www.bloomberg.com/news/articles/2026-03-11/haleon-ceo-targets-china-india-growth-with-new-plant-m-a-push Published Time: 2026-03-11T01:19:19.198Z Markdown Content: Haleon CEO Targets Chi...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/videos/2026-03-11/haleon-ceo-china-and-india-are-key-markets-video" target="_blank" rel="noopener">Haleon CEO: China and India are Key Markets</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">01:03</span>
+              <a href="https://www.bloomberg.com/news/videos/2026-03-11/haleon-ceo-china-and-india-are-key-markets-video" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Watch Haleon CEO: China and India are Key Markets - Bloomberg URL Source: https://www.bloomberg.com/news/videos/2026-03-11/haleon-ceo-china-and-india-are-key-markets-video Published Time: Mar 11th, 2026 Markdown Content: Watch Haleon CEO: China and India are Key Markets...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/activist-starboard-is-said-to-build-350-million-stake-in-carmax" target="_blank" rel="noopener">Activist Starboard Is Said to Build $350 Million Stake in CarMax</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">00:06</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/activist-starboard-is-said-to-build-350-million-stake-in-carmax" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Activist Starboard Is Said to Build $350 Million Stake in CarMax URL Source: https://www.bloomberg.com/news/articles/2026-03-11/activist-starboard-is-said-to-build-350-million-stake-in-carmax Published Time: 2026-03-11T00:06:47.712Z Markdown Content: Activist Starboard...</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="consumer" class="news-section">
+    <h2 class="section-title">Consumer & Retail <span class="zh-name">消费与零售</span> <span class="count">(3)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+            </div>
+            <h3 class="headline"><a href="https://www.bloomberg.com/news/articles/2026-03-11/iran-war-drives-key-japanese-aluminum-fee-to-highest-since-2015" target="_blank" rel="noopener">Iran War Drives Key Japanese Aluminum Fee to Highest Since 2015</a></h3>
+            <div class="source-full">Bloomberg</div>
+            <footer class="meta">
+              <span class="source-meta">Bloomberg</span>
+              <span class="time">03:58</span>
+              <a href="https://www.bloomberg.com/news/articles/2026-03-11/iran-war-drives-key-japanese-aluminum-fee-to-highest-since-2015" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Iran War Drives Key Japanese Aluminum Fee to Highest Since 2015 URL Source: https://www.bloomberg.com/news/articles/2026-03-11/iran-war-drives-key-japanese-aluminum-fee-to-highest-since-2015 Published Time: 2026-03-11T03:58:58.804Z Markdown Content: Iran War Drives Key...</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.nytimes.com/2026/03/10/us/politics/global-entry-dhs-shutdown.html" target="_blank" rel="noopener">Trump Administration to Restart Global Entry Program</a></h3>
+            <div class="source-full">NYT</div>
+            <footer class="meta">
+              <span class="source-meta">NYT</span>
+              <span class="time">01:12</span>
+              <a href="https://www.nytimes.com/2026/03/10/us/politics/global-entry-dhs-shutdown.html" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: Trump Administration to Restart Global Entry Program URL Source: https://www.nytimes.com/2026/03/10/us/politics/global-entry-dhs-shutdown.html Published Time: 2026-03-11T01:12:24.</p></div>
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+            </div>
+            <h3 class="headline"><a href="https://www.nytimes.com/2026/03/10/us/lausd-chief-alberto-carvalho-statement.html" target="_blank" rel="noopener">Alberto Carvalho, Suspended LAUSD Chief, Denies Wrongdoing</a></h3>
+            <div class="source-full">NYT</div>
+            <footer class="meta">
+              <span class="source-meta">NYT</span>
+              <span class="time">00:38</span>
+              <a href="https://www.nytimes.com/2026/03/10/us/lausd-chief-alberto-carvalho-statement.html" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          <div class="right-col"><p class="summary">Title: nytimes.com URL Source: Warning: Target URL returned error 403: Forbidden Warning: This page maybe requiring CAPTCHA, please make sure you are authorized to access this page. Markdown Content: nytimes.com ===============</p></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+    <footer class="site-footer">
+      <p>Generated by AI · 2026-03-11 12:13 UTC</p>
+      <p>Sources: Bloomberg · FT · NYT · WaPo · WSJ</p>
+    </footer>
+  </div>
+</body>
+</html>
