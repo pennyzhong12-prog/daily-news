@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily News Digest — 2026年03月11日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --text-headline: #1a1714;
+      --text-body: #4a4540;
+      --text-meta: #8a8075;
+      --tag-breaking: #b31e24;
+      --tag-essential: #8a5c0a;
+      --tag-context: #1a5a5c;
+      --tag-standard: #6b7280;
+      --border: #d4cfc7;
+      --source-bg: #e8e4dc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Source Serif 4', serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.6;
+      padding: 1.5rem 1rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .masthead {
+      text-align: center;
+      padding: 1.5rem 0 2rem;
+      border-bottom: 2px solid var(--text-headline);
+      margin-bottom: 1.5rem;
+    }
+    .masthead h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--text-headline);
+      margin-bottom: 0.5rem;
+    }
+    .masthead .date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      color: var(--text-meta);
+    }
+    .masthead .disclaimer-top {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.625rem;
+      color: var(--text-meta);
+      margin-top: 0.5rem;
+      padding: 0.375rem 0.625rem;
+      background: #ebe6de;
+      border-radius: 3px;
+      display: inline-block;
+    }
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .section-nav a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-meta);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .section-nav a:hover { color: var(--text-headline); }
+    .news-section { margin-bottom: 2rem; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-headline);
+      padding-bottom: 0.625rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title .zh-name {
+      font-size: 0.875rem;
+      color: var(--text-meta);
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+    .section-title .count {
+      font-size: 0.8rem;
+      color: var(--text-meta);
+      margin-left: 0.35rem;
+      font-weight: 400;
+    }
+    .story-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    .story-card {
+      background: #faf7f2;
+      border: 1px solid var(--border);
+      padding: 0.9rem;
+    }
+    .card-main {
+      display: grid;
+      grid-template-columns: minmax(320px, 1.1fr) minmax(260px, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .left-col, .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .right-col:empty { display: none; }
+    .card-header {
+      display: flex;
+      gap: 0.375rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.5625rem;
+      font-weight: 600;
+      padding: 0.125rem 0.3125rem;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+    .tag-breaking { background: var(--tag-breaking); color: #fff; }
+    .tag-essential { background: var(--tag-essential); color: #fff; }
+    .tag-context { background: var(--tag-context); color: #fff; }
+    .tag-standard { background: var(--tag-standard); color: #fff; }
+    .source-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.625rem;
+      font-weight: 600;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      color: var(--text-headline);
+      background: var(--source-bg);
+      margin-left: auto;
+      border: 1px solid var(--border);
+    }
+    .source-full {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-meta);
+    }
+    .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .headline a {
+      color: var(--text-headline);
+      text-decoration: none;
+    }
+    .headline a:hover { text-decoration: underline; }
+    .summary {
+      font-size: 0.875rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      min-height: 3.2em;
+    }
+    .meta {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-meta);
+      padding-top: 0.625rem;
+      border-top: 1px solid var(--border);
+    }
+    .source-meta {
+      font-weight: 600;
+      color: var(--text-headline);
+    }
+    .read-more {
+      margin-left: auto;
+      color: var(--text-headline);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .read-more:hover { text-decoration: underline; }
+    .site-footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-top: 2px solid var(--text-headline);
+      margin-top: 2rem;
+    }
+    .site-footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--text-meta);
+      margin: 0.25rem 0;
+    }
+    @media (max-width: 768px) {
+      .masthead h1 { font-size: 2rem; }
+      .card-main { grid-template-columns: 1fr; }
+      .section-nav { flex-direction: column; align-items: center; }
+      .section-title { font-size: 1.25rem; }
+      .headline { font-size: 1rem; -webkit-line-clamp: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="masthead">
+      <h1>The Dispatch</h1>
+      <p class="date">Wednesday, March 11, 2026 · 25 stories · Past 24h</p>
+      <p class="disclaimer-top">⚠️ Headlines are verbatim. Summaries are generated from RSS + Jina extracted text.</p>
+    </header>
+    <nav class="section-nav">
+      <a href="#politics">Politics</a>
+      <a href="#energy">Energy</a>
+      <a href="#macro">Macro</a>
+      <a href="#tech">AI & Tech</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#consumer">Consumer</a>
+    </nav>
+    
+  <section id="politics" class="news-section">
+    <h2 class="section-title">Politics & Conflict <span class="zh-name">政治与冲突</span> <span class="count">(9)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxPS0VZTzlnZGhwbVVaYnZqNGpybUdvX2ZfTDFsSC1VVGhmY0JBZU5LS2FFWVdIM3dTOUVza1RqY21VSXZER1pRcE1iTVB3cEVrYzJyeHltbkRWMmJ1b2g1b3pxdWVPSFhSa2RueVlvUVVrYXpSZm9fYzFDd1dhVExheHc4Y1RFMDdVSV9vMU9jY1Joc0t5aFRRUVpJd0dVNnJxN1ZxTVN5bEJVb0ZtYlNhRGJSUmFwbGxBblRVeW5qeWJ5WGk4dVVoblFKcFZyVUk3NFktekN3eGgtbWxUNWhnQWYybkQza1JzLWxzbHc2MFUzQWp1enBvSkZLT1EtYTk3U2d1T19kbVRxMkxsekp2LVdxRUlsclBhcnBvV2RyR2lFaW1adXpnVkx6cHVyWUdaSUZjZnZycy1HeWxmc1owRkgzOWxyZ09VT2dHX3BiTTBNRVJPSzNpMUtxaDBnRlhLYVlLMHZHbkIxVWZIQ2VmOTQ2a29VdjVZcmkwZ3NqY2JyazJvRVNFbG5QbmcxV2VDSTNLbVZ3MDhtbFdkV0xwS1VKUkV3QmJfVWlvNVE1bw?oc=5" target="_blank" rel="noopener">AeroVironment Cuts Guidance, Says Government Shutdown Delayed Orders in Third Quarter</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">22:50</span>
+              <a href="https://news.google.com/rss/articles/CBMirwNBVV95cUxPS0VZTzlnZGhwbVVaYnZqNGpybUdvX2ZfTDFsSC1VVGhmY0JBZU5LS2FFWVdIM3dTOUVza1RqY21VSXZER1pRcE1iTVB3cEVrYzJyeHltbkRWMmJ1b2g1b3pxdWVPSFhSa2RueVlvUVVrYXpSZm9fYzFDd1dhVExheHc4Y1RFMDdVSV9vMU9jY1Joc0t5aFRRUVpJd0dVNnJxN1ZxTVN5bEJVb0ZtYlNhRGJSUmFwbGxBblRVeW5qeWJ5WGk4dVVoblFKcFZyVUk3NFktekN3eGgtbWxUNWhnQWYybkQza1JzLWxzbHc2MFUzQWp1enBvSkZLT1EtYTk3U2d1T19kbVRxMkxsekp2LVdxRUlsclBhcnBvV2RyR2lFaW1adXpnVkx6cHVyWUdaSUZjZnZycy1HeWxmc1owRkgzOWxyZ09VT2dHX3BiTTBNRVJPSzNpMUtxaDBnRlhLYVlLMHZHbkIxVWZIQ2VmOTQ2a29VdjVZcmkwZ3NqY2JyazJvRVNFbG5QbmcxV2VDSTNLbVZ3MDhtbFdkV0xwS1VKUkV3QmJfVWlvNVE1bw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMigANBVV95cUxOX2dXWEQ5SUZHQlFKQlVPZG9tNjhnQmdXUFd2Qnl6TnctSFY1SzBFaWE5cVdyRGFzSGhDVTlmMlVrUDY5TEpQbFl1T2JBdTc1d04xN3JvVFVDMnRDQXRHRUFLOUxsZFhvc3FIekNFN3l6NmwyajhIZHcwYmdEX0RaNVBlRmxZMFVyd3I0V00wMzR4QWFHaEQ0a3JyQjNSb0RsS0tnRnBVbm1nU2ZtbTNOSTRValIwWFpoYlE4ZkpXeHl2NEpjWHdrellYTnFJRElIajh5alRucklMczBjVkNGaUhCdUs1SVFlLTNvZHVmYmZ0bW12VEdfdC14N240dmxRYWZJQnFqcmk2dVRQSll1cDZNV0Z5MDdKemhlczQyMnY1TjBlclpTSWQ0Mm9KM3pEaWFXVkJQUGh4SUY2WV9jOUFlUW5wNENKQWdEU2ZheW5yWXF3cG8wc1RLbko2c3NUMlNfS1ZxcFRBMXpybmtjY0FveElnakpwUkxqUFRPRE4?oc=5" target="_blank" rel="noopener">Opinion | How the Iran War Is Hitting Campus</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">21:31</span>
+              <a href="https://news.google.com/rss/articles/CBMigANBVV95cUxOX2dXWEQ5SUZHQlFKQlVPZG9tNjhnQmdXUFd2Qnl6TnctSFY1SzBFaWE5cVdyRGFzSGhDVTlmMlVrUDY5TEpQbFl1T2JBdTc1d04xN3JvVFVDMnRDQXRHRUFLOUxsZFhvc3FIekNFN3l6NmwyajhIZHcwYmdEX0RaNVBlRmxZMFVyd3I0V00wMzR4QWFHaEQ0a3JyQjNSb0RsS0tnRnBVbm1nU2ZtbTNOSTRValIwWFpoYlE4ZkpXeHl2NEpjWHdrellYTnFJRElIajh5alRucklMczBjVkNGaUhCdUs1SVFlLTNvZHVmYmZ0bW12VEdfdC14N240dmxRYWZJQnFqcmk2dVRQSll1cDZNV0Z5MDdKemhlczQyMnY1TjBlclpTSWQ0Mm9KM3pEaWFXVkJQUGh4SUY2WV9jOUFlUW5wNENKQWdEU2ZheW5yWXF3cG8wc1RLbko2c3NUMlNfS1ZxcFRBMXpybmtjY0FveElnakpwUkxqUFRPRE4?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-context">CONTEXT</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxOVUdTb0pRTERrbXFhV0tpc21lUGdIal9qVTBSdndVNUVScUsxeUdzLUsxT1dfQ0YtUWJuY3BjdUc3Qjc2RmVacGowUGlzdmJQYW9YRVRhY1hySzczUXV5VFJENmVKUldtMDBWSzhuYTNaNG9TRzVNRmwtYVhkazkzanhIZjB1RmQybEpZeGdXNTRsd0V0TzdESVEzMVEzQ2FUY3E2R2FWellzQ3hRdUozaGphMDFuVlFuNjYwUV8tOGJWQ0lsUFNQZGJtcEZVdmxCQXJ3UWdxMjNEYV90QWwxVThBTUozYjRxNm45Q3d1WHphT2czeDA0WlNmaEVoMmhrU3EwY2F3RURVTXJFTnpxSWkxM0ktRzZpZ05KVFQzWndRVlpMZ051M3VZWDNVZGFiQ0pFSnQ4TC10OVBkMDV0RGlvTWJyamJLcS1BUzB2cnJ1c3FfbGJhSGdjVlM2YkRCalZsUU5XMWF2MEZzQXlMRG02STAwZll5UXNGTEpINjRBMWFZdWVRSnBWYnFFVlNjcEpobkoxZ1ZiU28?oc=5" target="_blank" rel="noopener">Opinion | The Nuclear Job in Iran Isn’t Finished</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">21:23</span>
+              <a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxOVUdTb0pRTERrbXFhV0tpc21lUGdIal9qVTBSdndVNUVScUsxeUdzLUsxT1dfQ0YtUWJuY3BjdUc3Qjc2RmVacGowUGlzdmJQYW9YRVRhY1hySzczUXV5VFJENmVKUldtMDBWSzhuYTNaNG9TRzVNRmwtYVhkazkzanhIZjB1RmQybEpZeGdXNTRsd0V0TzdESVEzMVEzQ2FUY3E2R2FWellzQ3hRdUozaGphMDFuVlFuNjYwUV8tOGJWQ0lsUFNQZGJtcEZVdmxCQXJ3UWdxMjNEYV90QWwxVThBTUozYjRxNm45Q3d1WHphT2czeDA0WlNmaEVoMmhrU3EwY2F3RURVTXJFTnpxSWkxM0ktRzZpZ05KVFQzWndRVlpMZ051M3VZWDNVZGFiQ0pFSnQ4TC10OVBkMDV0RGlvTWJyamJLcS1BUzB2cnJ1c3FfbGJhSGdjVlM2YkRCalZsUU5XMWF2MEZzQXlMRG02STAwZll5UXNGTEpINjRBMWFZdWVRSnBWYnFFVlNjcEpobkoxZ1ZiU28?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiuwNBVV95cUxOcE5IZ044b09TcFZNNTlvb3F1enBMQi1HQjllNDZwUm5wTHBNcTVBR1BRUUdHTUphQm9ZMEdfZ0tydnVaVDh4ZjV0TkhhRkttZTl2ZTRFUHc0MzAwVE9ubjByXzV1dVlXLXo2THVJRkxSOHM0VjhHZ0g2NHRFc0NGb2VzZ1VvSHVXcVUzTWV0MllYRnJlbm96OVNrb3dfLVUwcjFlbWowcTVkX2o0LVRGYklZRlZzSktGeS02dVR4Rm9mdUVDV2ZYaHVKdkVzWUg2OHp0WkxVM19QOGxnRlROOXBLdnNUMUdiX2ZVaklsdzA3S1l5dktfR1FYdGpKdDc0SlV4UTNrTmhjX19kNVdOdFhZdXJsYnZTNU1rTVlkWmlpZkVIQkgtamZtZVpZbXBlVlBqa2dGSThGeXFESU9fVkF5WlFXNDZEdkF4UXIxeG9UaDgtMk5iVWxPWUhXcG5YVnBJajd2U0V6Qmh5Zjh5RGloOGIyRTUxdTZOc3JPdTRUNDVnY1RUckw0dFFrcnJZZ2hJSkZtcy16anAteTFrZVQ2ME45WW5UUGhrZW9LdEJJN2xxTFFKV2lUaw?oc=5" target="_blank" rel="noopener">FDA Warns Novo Nordisk of Unreported Side Effects Tied to GLP-1 Patients</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">16:33</span>
+              <a href="https://news.google.com/rss/articles/CBMiuwNBVV95cUxOcE5IZ044b09TcFZNNTlvb3F1enBMQi1HQjllNDZwUm5wTHBNcTVBR1BRUUdHTUphQm9ZMEdfZ0tydnVaVDh4ZjV0TkhhRkttZTl2ZTRFUHc0MzAwVE9ubjByXzV1dVlXLXo2THVJRkxSOHM0VjhHZ0g2NHRFc0NGb2VzZ1VvSHVXcVUzTWV0MllYRnJlbm96OVNrb3dfLVUwcjFlbWowcTVkX2o0LVRGYklZRlZzSktGeS02dVR4Rm9mdUVDV2ZYaHVKdkVzWUg2OHp0WkxVM19QOGxnRlROOXBLdnNUMUdiX2ZVaklsdzA3S1l5dktfR1FYdGpKdDc0SlV4UTNrTmhjX19kNVdOdFhZdXJsYnZTNU1rTVlkWmlpZkVIQkgtamZtZVpZbXBlVlBqa2dGSThGeXFESU9fVkF5WlFXNDZEdkF4UXIxeG9UaDgtMk5iVWxPWUhXcG5YVnBJajd2U0V6Qmh5Zjh5RGloOGIyRTUxdTZOc3JPdTRUNDVnY1RUckw0dFFrcnJZZ2hJSkZtcy16anAteTFrZVQ2ME45WW5UUGhrZW9LdEJJN2xxTFFKV2lUaw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-4">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMijwNBVV95cUxQcEJGTnNQM3RYMEpxYVZyYkZBU3F6SUhlc25vS3Z6emgwcldoVDBQSkpzRVpLeTVCZWVKS2lPQl9wSzUwVlcwdjV4aFZvSFVrREw5MUN1SGFUOVFubm1yUkMtZHB1bnlhMFYySVdDWDdZcWFpUUlHWmxSSEd5bjFOVU11UzBzWGlLLTVuN3BibWFOSTB2TWlGcDJzcXlDbkhMc0pxZ2FpdVlIZHlHYllqMTlvZjRTUXoxS2tHZGs1cnJWYjNYcFpqbHJYSTlmN095Sm8wajFFc2FpU09MVS0tZ2tkRllFcEtFZDIxQVUxM3J2bkc0Wm1KbWFsRE5UTHlyXzdhUzBLdXJOeUljZUowOHFqQ2RxMzFTOFJZdy1kTzBhZEQ4dXVuOHZLTDhYdUIxR3lseHg2NGh1c0p6MWk5LUp6WG5lRHJHSzdWN0JFTFFSNmJCYXZyS3RmQW9HRXZYSi02U25WWFlwczdiM2s2QmtndVIwSXVRV29DblY1d3FSdDM2T2JHQTJfUGQtWGs?oc=5" target="_blank" rel="noopener">Essay | My Great-Uncle Was a Prime Minister of Iran. Can We Ever Go Back?</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">14:23</span>
+              <a href="https://news.google.com/rss/articles/CBMijwNBVV95cUxQcEJGTnNQM3RYMEpxYVZyYkZBU3F6SUhlc25vS3Z6emgwcldoVDBQSkpzRVpLeTVCZWVKS2lPQl9wSzUwVlcwdjV4aFZvSFVrREw5MUN1SGFUOVFubm1yUkMtZHB1bnlhMFYySVdDWDdZcWFpUUlHWmxSSEd5bjFOVU11UzBzWGlLLTVuN3BibWFOSTB2TWlGcDJzcXlDbkhMc0pxZ2FpdVlIZHlHYllqMTlvZjRTUXoxS2tHZGs1cnJWYjNYcFpqbHJYSTlmN095Sm8wajFFc2FpU09MVS0tZ2tkRllFcEtFZDIxQVUxM3J2bkc0Wm1KbWFsRE5UTHlyXzdhUzBLdXJOeUljZUowOHFqQ2RxMzFTOFJZdy1kTzBhZEQ4dXVuOHZLTDhYdUIxR3lseHg2NGh1c0p6MWk5LUp6WG5lRHJHSzdWN0JFTFFSNmJCYXZyS3RmQW9HRXZYSi02U25WWFlwczdiM2s2QmtndVIwSXVRV29DblY1d3FSdDM2T2JHQTJfUGQtWGs?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-5">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiygNBVV95cUxQNnJuVXJRZHdnYlFsTldJN3ZxSDdEYXlwSXN3TXhkcXlKVWlTY2dkb2o0NnpkeTgyaE1yUGdHdVFfcDZoaGhCMG4yelVEdEZwbHF3UC1CVzFuaS1sME9EdGNDVmF2bDAwWUNYa1l6Rnc4MTVVVnlscXdnOWlDVE1wbWlRQ2hnbUU1ZFI4czdMVDZraUhiMDQyNWdRZzgzU0VfM0UwSFlmWE9zYlJtZG9tUi1PS0xUWVJtUzB3NXFOUk5BYzVYcVZRUWlXalpDam5uNXZRVV90aGdJUTB2VUs3U2wzZGVXelJRYTV1Qi1ubTVKOEZTVDVhYjU0aUlhVjF6NTFoS1NfWXpuNHdBRURiZDc4ZHZTUmtFUWM2U0lYRGRMODJyZFdVcm1zb29FbUVRZ2J0QmJ2N0trb3pPbmNLZEtZVk9TNHVHWFVMcXNrV0Y4bWY5cTU5Qm40UVVmQ2o5MnFnLXk1Z1pRN2xraWZaZHM3T0xmbnRJVTY2RE03YWdQZTNDNjd0cWR2QmhtR3BYbWtKYTJFeEN5cnBEMTlBNld6ZzN1RWtheXpxT2xOcFdNNVA0bHBnTC1oZ1p0dmE2R1diUi1TTUtEdw?oc=5" target="_blank" rel="noopener">Five Iranian Women’s Soccer Players Granted Humanitarian Visas by Australia</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">13:29</span>
+              <a href="https://news.google.com/rss/articles/CBMiygNBVV95cUxQNnJuVXJRZHdnYlFsTldJN3ZxSDdEYXlwSXN3TXhkcXlKVWlTY2dkb2o0NnpkeTgyaE1yUGdHdVFfcDZoaGhCMG4yelVEdEZwbHF3UC1CVzFuaS1sME9EdGNDVmF2bDAwWUNYa1l6Rnc4MTVVVnlscXdnOWlDVE1wbWlRQ2hnbUU1ZFI4czdMVDZraUhiMDQyNWdRZzgzU0VfM0UwSFlmWE9zYlJtZG9tUi1PS0xUWVJtUzB3NXFOUk5BYzVYcVZRUWlXalpDam5uNXZRVV90aGdJUTB2VUs3U2wzZGVXelJRYTV1Qi1ubTVKOEZTVDVhYjU0aUlhVjF6NTFoS1NfWXpuNHdBRURiZDc4ZHZTUmtFUWM2U0lYRGRMODJyZFdVcm1zb29FbUVRZ2J0QmJ2N0trb3pPbmNLZEtZVk9TNHVHWFVMcXNrV0Y4bWY5cTU5Qm40UVVmQ2o5MnFnLXk1Z1pRN2xraWZaZHM3T0xmbnRJVTY2RE03YWdQZTNDNjd0cWR2QmhtR3BYbWtKYTJFeEN5cnBEMTlBNld6ZzN1RWtheXpxT2xOcFdNNVA0bHBnTC1oZ1p0dmE2R1diUi1TTUtEdw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-6">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimgNBVV95cUxONDNidGhGRTREZU9aV2JBWVlJbldjZlhvYXdyamdwc3J4N3FUVXJxSzg4OU1OYXY2T2ZnbTktT0ZtaUxUTUtuQU9YZ1prTnVJd2VfT1hxVkNyaXA3ckJ1SHpqLThMMUpOc3ljcS1fUlp0dEFDSnFLYWlGV3paQXdFVUc2RVo5TWZFLWY3ekJIRGRsQmN2U3BkX05EaGRYZUc4cHBZa0szTDhOUXc1QWhNOEpQYzNIQ0c0djUtaUpsS0lRZkIzdTdMYkxPRkNJejFQR3NKcHRyOW9UWHppTzFSQ3BIRWI4eDd1M1dSbzZLUXRScEpQRFhlZUM1bi1wVm4wU2tyQUFzb2ZiVUsyaEExVE9zclJCZlN1amxDWkwxa3QwU2NKMUVZVXFtTTJWMDNHemV3dzdPbnlMLVVHX1Zwd2l5V294ZVdFZTM4ZWdnRndEblNfdU1maXYxOWM3aVV0d1ZNMy1PRERadWtvT0ZtTlB0aWdGMmJJMDI0RFVzd3haX2xLN2NFUjVMVUVFeEQyeGF6T1dRMWxwZw?oc=5" target="_blank" rel="noopener">China Has Spent Years Preparing for the Iran Oil Crisis</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">13:00</span>
+              <a href="https://news.google.com/rss/articles/CBMimgNBVV95cUxONDNidGhGRTREZU9aV2JBWVlJbldjZlhvYXdyamdwc3J4N3FUVXJxSzg4OU1OYXY2T2ZnbTktT0ZtaUxUTUtuQU9YZ1prTnVJd2VfT1hxVkNyaXA3ckJ1SHpqLThMMUpOc3ljcS1fUlp0dEFDSnFLYWlGV3paQXdFVUc2RVo5TWZFLWY3ekJIRGRsQmN2U3BkX05EaGRYZUc4cHBZa0szTDhOUXc1QWhNOEpQYzNIQ0c0djUtaUpsS0lRZkIzdTdMYkxPRkNJejFQR3NKcHRyOW9UWHppTzFSQ3BIRWI4eDd1M1dSbzZLUXRScEpQRFhlZUM1bi1wVm4wU2tyQUFzb2ZiVUsyaEExVE9zclJCZlN1amxDWkwxa3QwU2NKMUVZVXFtTTJWMDNHemV3dzdPbnlMLVVHX1Zwd2l5V294ZVdFZTM4ZWdnRndEblNfdU1maXYxOWM3aVV0d1ZNMy1PRERadWtvT0ZtTlB0aWdGMmJJMDI0RFVzd3haX2xLN2NFUjVMVUVFeEQyeGF6T1dRMWxwZw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-7">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiiANBVV95cUxQUFF3NFlfdmthQWNDSnYxWWFCS3YyVFNzbGtKUWl5dWVMSjRaeVlpY1pCRTNjVGNqM2NOeG1lV0w1eDlnTHZMVHRWWG9MZHZJVUhXYjJMR1lZVHRqckd0cDd5LU5SdVZ0OG1iQ2lJYXdHMzVrYjMtbWFMcEE5S1ItXzFGRGt5cWFqT3VaR0g2MGJJZkZwTUctRG9vcTg1dndzWEZSZm9WdXEwdzBmQ1FCZ0podnlqMjkzaGdOWTl1YUhROElkX2w4UXc0dGJSYUppWnptR1ZTSE1FM0gwVjZ1RnVJdHUxc3dPNXlkd2l5blhsQWJoaEluTjVZNV9MNnAzS0duTGU2RTZibDR6WTdfZUZpQ3JJQ0tzTHU4TDhCUnRWb3BVTnJ0QV9XZ3RmVHhsc3drY3RJemN3NnZFc2h0WW1LNTNIWDFKNWlhcFpESURyMzlBY2w5X1J0Y291eVE4VzREbzFzbXByenRyR055U1htZDF4aU9EVW5QbUo0Y1dYY20zVmpNSA?oc=5" target="_blank" rel="noopener">On Iran, Trump Steers Toward an Off-Ramp</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">11:05</span>
+              <a href="https://news.google.com/rss/articles/CBMiiANBVV95cUxQUFF3NFlfdmthQWNDSnYxWWFCS3YyVFNzbGtKUWl5dWVMSjRaeVlpY1pCRTNjVGNqM2NOeG1lV0w1eDlnTHZMVHRWWG9MZHZJVUhXYjJMR1lZVHRqckd0cDd5LU5SdVZ0OG1iQ2lJYXdHMzVrYjMtbWFMcEE5S1ItXzFGRGt5cWFqT3VaR0g2MGJJZkZwTUctRG9vcTg1dndzWEZSZm9WdXEwdzBmQ1FCZ0podnlqMjkzaGdOWTl1YUhROElkX2w4UXc0dGJSYUppWnptR1ZTSE1FM0gwVjZ1RnVJdHUxc3dPNXlkd2l5blhsQWJoaEluTjVZNV9MNnAzS0duTGU2RTZibDR6WTdfZUZpQ3JJQ0tzTHU4TDhCUnRWb3BVTnJ0QV9XZ3RmVHhsc3drY3RJemN3NnZFc2h0WW1LNTNIWDFKNWlhcFpESURyMzlBY2w5X1J0Y291eVE4VzREbzFzbXByenRyR055U1htZDF4aU9EVW5QbUo0Y1dYY20zVmpNSA?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-8">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxPbjBXdVQxMS1lWGl5SnhSLXNkZDJ5M0E4S2ZkUHFRNHlsMnlDbUNDcmx2V3JuUWRzdkFGRS15MC1ZclIxSHlGZExSem5FQVMtdXNoRWI3VFRjNUpvOTlZOU00cEYwc01uVVpkdU04ekVBZ2xYTnhFUkN4U2RQcnA3b04wRkJfOThzZ01TMEpiRFZxUjNJd1p2MjhIQTc1aFhhM0cyTks1ZVhTWGE2ZXRNZy1PWnA3NDRIMHRPbEp4bEU1TGxkV3dJaDVYclljQUFZVFhWaE1lOF83YVcycnRKS3AwOXRjYzBFcU5HVmxJNkNzMVBUZVppT1VodDA4Sk16czl6STNiUkYyaG8tSUpXd0J1WFRRNUk5RjBMNU03TW5EbmtYNlVYR3N6ckYxVFJlNU9ENHFPOTg5dTdobU1UU2h1LUtzc3BIUzZxYXRjYkJnRWVWbzJNbzlIRnFYZF8wU1JyYzYwRHEtZ0FYZDRDU1pKc0syRzNVaDc2ZzFXbGFIWF9jTGdoU1YzZEdUem1YamR1bjk4X3JjSDhqWkJEZzRoYllrMnZ2LVVTdmh0UndOT1VsdTJKNGpn?oc=5" target="_blank" rel="noopener">The Final Days of an Iranian Navy Crew Before the U.S. Torpedoed Their Ship</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">04:54</span>
+              <a href="https://news.google.com/rss/articles/CBMiugNBVV95cUxPbjBXdVQxMS1lWGl5SnhSLXNkZDJ5M0E4S2ZkUHFRNHlsMnlDbUNDcmx2V3JuUWRzdkFGRS15MC1ZclIxSHlGZExSem5FQVMtdXNoRWI3VFRjNUpvOTlZOU00cEYwc01uVVpkdU04ekVBZ2xYTnhFUkN4U2RQcnA3b04wRkJfOThzZ01TMEpiRFZxUjNJd1p2MjhIQTc1aFhhM0cyTks1ZVhTWGE2ZXRNZy1PWnA3NDRIMHRPbEp4bEU1TGxkV3dJaDVYclljQUFZVFhWaE1lOF83YVcycnRKS3AwOXRjYzBFcU5HVmxJNkNzMVBUZVppT1VodDA4Sk16czl6STNiUkYyaG8tSUpXd0J1WFRRNUk5RjBMNU03TW5EbmtYNlVYR3N6ckYxVFJlNU9ENHFPOTg5dTdobU1UU2h1LUtzc3BIUzZxYXRjYkJnRWVWbzJNbzlIRnFYZF8wU1JyYzYwRHEtZ0FYZDRDU1pKc0syRzNVaDc2ZzFXbGFIWF9jTGdoU1YzZEdUem1YamR1bjk4X3JjSDhqWkJEZzRoYllrMnZ2LVVTdmh0UndOT1VsdTJKNGpn?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="energy" class="news-section">
+    <h2 class="section-title">Energy & Resources <span class="zh-name">能源与资源</span> <span class="count">(4)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMitwNBVV95cUxNZlh1MWhjbkFZUHJwaEM0V05kZ2FpS19sa1NhUG9kZlZNRUlfb05SaTZhU1dGOVF6RlFOUmdyRTJFTWRiZzF5UW14WTlWUGtJNlVCaUFxd194MktwVE84UUtPU01XSk5ldXhWWXNjaFZmT3RQY3NDQjAxa1RKQWJ4b2k0WnJ6ZnpLd1FaWlE1MHFRSkFhb0tZRzBpVUd3c0JGREZOMHpFeVVCOWRmUy1pODJzMG8zdi1sd2tmNFgzQmlTX2FldjlUaDZRaTk2b1NscExSb25Nb25CTlAzQ2hFSTZ4d19zeUdyNnk1ckhoR2NuTkNVSUZOODFXdFp4b1p0MmFwdEJIWk9sMzAzWnItdnRtWlJsTEZuUHVoUHAyQ1JYd05wY2ljdlZxaDNzNUhvUnJwRlBxdnUtaG9mQnR3V2NCbWVRM2JaLU5sVURueVdWV3lMak1MRkFtVG1MVTc0YVFtLWQ1MVZYZTBhbXAtVGdUemVwamVvWlJqbFZmLVU0UkxBNXAzTmg0dmsyWXVnb1ZTRlllcmpKSXJRR3lsVHJ5NmZQOG5JelF5NUI1SzJEQnM2UUhJ?oc=5" target="_blank" rel="noopener">Asian Currencies Mostly Strengthen Amid Falling Crude Oil Prices</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">02:13</span>
+              <a href="https://news.google.com/rss/articles/CBMitwNBVV95cUxNZlh1MWhjbkFZUHJwaEM0V05kZ2FpS19sa1NhUG9kZlZNRUlfb05SaTZhU1dGOVF6RlFOUmdyRTJFTWRiZzF5UW14WTlWUGtJNlVCaUFxd194MktwVE84UUtPU01XSk5ldXhWWXNjaFZmT3RQY3NDQjAxa1RKQWJ4b2k0WnJ6ZnpLd1FaWlE1MHFRSkFhb0tZRzBpVUd3c0JGREZOMHpFeVVCOWRmUy1pODJzMG8zdi1sd2tmNFgzQmlTX2FldjlUaDZRaTk2b1NscExSb25Nb25CTlAzQ2hFSTZ4d19zeUdyNnk1ckhoR2NuTkNVSUZOODFXdFp4b1p0MmFwdEJIWk9sMzAzWnItdnRtWlJsTEZuUHVoUHAyQ1JYd05wY2ljdlZxaDNzNUhvUnJwRlBxdnUtaG9mQnR3V2NCbWVRM2JaLU5sVURueVdWV3lMak1MRkFtVG1MVTc0YVFtLWQ1MVZYZTBhbXAtVGdUemVwamVvWlJqbFZmLVU0UkxBNXAzTmg0dmsyWXVnb1ZTRlllcmpKSXJRR3lsVHJ5NmZQOG5JelF5NUI1SzJEQnM2UUhJ?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-breaking">BREAKING</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMitANBVV95cUxOczlNRm1xVlpYZlh2WEo3blZ3aHhkNjM4RDl3bGZVQ3Jmb3Z0UW9DcUNkQjMzSGtSWmRJUzUwTXd2SVJmdFg0MWowSERpTWtYYm40N1hVazVKNXBQSk5SRmNKMXhjOWxBa1locmtYTUcwQVZXVnRSTmZac1lXcGJxVVVsdk4zZDdDVUhQU05hd3Z5d3NBWkw1eEUxRk9wSnFFeVlUNWFnRjY5akVWbHhiZmJqZ2wydF9RYjJnZVl3S284RUNleFVqUFdPaXM5aDloSUFQMzFNVXpjc1ozR0xQcGJXckZyRnptcHE2NDFTVFJnX1ktVzh5MXQ0SG5qTmtTYXppZzRuSTJ2VDJUVzVuQVV2ZmhWd21mZGxXSjF6MnlfT3JkM3JPUFRPVkM2NmU0emx2eVMtY2VjQnMzN2J3RFhpdzZ4dzlZcjlEMkFyXy1nZjJ5WHRycmZsVzAxeUpNek1vQjZzTkdwWTJWaFdBX1ozYmwxU0UyV05BcUZ4SVNLZ2pBOXpFYmQ2RE9CeUxMYk1CTUF4M2JIVHYyRVVySkdfUHQwVWFua09TTDNBRTBva09a?oc=5" target="_blank" rel="noopener">Exclusive | IEA Proposes Largest Ever Oil Release From Strategic Reserves</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">01:09</span>
+              <a href="https://news.google.com/rss/articles/CBMitANBVV95cUxOczlNRm1xVlpYZlh2WEo3blZ3aHhkNjM4RDl3bGZVQ3Jmb3Z0UW9DcUNkQjMzSGtSWmRJUzUwTXd2SVJmdFg0MWowSERpTWtYYm40N1hVazVKNXBQSk5SRmNKMXhjOWxBa1locmtYTUcwQVZXVnRSTmZac1lXcGJxVVVsdk4zZDdDVUhQU05hd3Z5d3NBWkw1eEUxRk9wSnFFeVlUNWFnRjY5akVWbHhiZmJqZ2wydF9RYjJnZVl3S284RUNleFVqUFdPaXM5aDloSUFQMzFNVXpjc1ozR0xQcGJXckZyRnptcHE2NDFTVFJnX1ktVzh5MXQ0SG5qTmtTYXppZzRuSTJ2VDJUVzVuQVV2ZmhWd21mZGxXSjF6MnlfT3JkM3JPUFRPVkM2NmU0emx2eVMtY2VjQnMzN2J3RFhpdzZ4dzlZcjlEMkFyXy1nZjJ5WHRycmZsVzAxeUpNek1vQjZzTkdwWTJWaFdBX1ozYmwxU0UyV05BcUZ4SVNLZ2pBOXpFYmQ2RE9CeUxMYk1CTUF4M2JIVHYyRVVySkdfUHQwVWFua09TTDNBRTBva09a?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMivwNBVV95cUxPMVBPLVlOTlFXZlMwLXpfS0FQYnBoX2VVejFoZDk1T0swYnRUc0NJQ0lfNTREQTg4Q2VXREZOeXhHUnNoc055bVBYVFprMTMwNmdjR2R4djdQMWtZYzBBeHZqbnI5N3RkQ2pMb2xHUmdKUGJvd3QyZHhwTkx3VnduMngzV2diOExRS2FPTWRYNmlxOVdxdHhKUkZ1VmxfT2xxSG56d1pXSU1ROHB5d1ZKZ0E3dTVnY1NKa2tDVXNyVkhWZ05oYWtOQWxIdmhnR3owaHhrTXZvdk1PTkRITGFzejNpU1FacnZPTTMtNGo5R0lLS3NUU3FwY0JrclVRMVJobjlCMEtzZkpSWGJVVVEyNUdXQnQ0UWtDaXNoTV93MEdzeHJicnVJQnZRbW93Szk4UlBnYURIUDVENG1yRUp3OEMxOFFraFRwYlIwb0dFdjBVUy10Vkx0VTRhTU9sQXJkR09uTkZ2QUkxNDFZVEpjNTY4S3hxWGthSjJtd1VkMTU5U01BS0JKaGlSLVQ2cnlLQlhwNE5MOV84SUV1RGJURDBNdVJwdS1BeHBxS2lvbTlIUTBFbzUta1F6dk1zRjQ?oc=5" target="_blank" rel="noopener">Deleted Tweet From Energy Secretary Sends Oil Markets on Another Wild Ride</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">22:51</span>
+              <a href="https://news.google.com/rss/articles/CBMivwNBVV95cUxPMVBPLVlOTlFXZlMwLXpfS0FQYnBoX2VVejFoZDk1T0swYnRUc0NJQ0lfNTREQTg4Q2VXREZOeXhHUnNoc055bVBYVFprMTMwNmdjR2R4djdQMWtZYzBBeHZqbnI5N3RkQ2pMb2xHUmdKUGJvd3QyZHhwTkx3VnduMngzV2diOExRS2FPTWRYNmlxOVdxdHhKUkZ1VmxfT2xxSG56d1pXSU1ROHB5d1ZKZ0E3dTVnY1NKa2tDVXNyVkhWZ05oYWtOQWxIdmhnR3owaHhrTXZvdk1PTkRITGFzejNpU1FacnZPTTMtNGo5R0lLS3NUU3FwY0JrclVRMVJobjlCMEtzZkpSWGJVVVEyNUdXQnQ0UWtDaXNoTV93MEdzeHJicnVJQnZRbW93Szk4UlBnYURIUDVENG1yRUp3OEMxOFFraFRwYlIwb0dFdjBVUy10Vkx0VTRhTU9sQXJkR09uTkZ2QUkxNDFZVEpjNTY4S3hxWGthSjJtd1VkMTU5U01BS0JKaGlSLVQ2cnlLQlhwNE5MOV84SUV1RGJURDBNdVJwdS1BeHBxS2lvbTlIUTBFbzUta1F6dk1zRjQ?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimgNBVV95cUxONDNidGhGRTREZU9aV2JBWVlJbldjZlhvYXdyamdwc3J4N3FUVXJxSzg4OU1OYXY2T2ZnbTktT0ZtaUxUTUtuQU9YZ1prTnVJd2VfT1hxVkNyaXA3ckJ1SHpqLThMMUpOc3ljcS1fUlp0dEFDSnFLYWlGV3paQXdFVUc2RVo5TWZFLWY3ekJIRGRsQmN2U3BkX05EaGRYZUc4cHBZa0szTDhOUXc1QWhNOEpQYzNIQ0c0djUtaUpsS0lRZkIzdTdMYkxPRkNJejFQR3NKcHRyOW9UWHppTzFSQ3BIRWI4eDd1M1dSbzZLUXRScEpQRFhlZUM1bi1wVm4wU2tyQUFzb2ZiVUsyaEExVE9zclJCZlN1amxDWkwxa3QwU2NKMUVZVXFtTTJWMDNHemV3dzdPbnlMLVVHX1Zwd2l5V294ZVdFZTM4ZWdnRndEblNfdU1maXYxOWM3aVV0d1ZNMy1PRERadWtvT0ZtTlB0aWdGMmJJMDI0RFVzd3haX2xLN2NFUjVMVUVFeEQyeGF6T1dRMWxwZw?oc=5" target="_blank" rel="noopener">China Has Spent Years Preparing for the Iran Oil Crisis</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">13:00</span>
+              <a href="https://news.google.com/rss/articles/CBMimgNBVV95cUxONDNidGhGRTREZU9aV2JBWVlJbldjZlhvYXdyamdwc3J4N3FUVXJxSzg4OU1OYXY2T2ZnbTktT0ZtaUxUTUtuQU9YZ1prTnVJd2VfT1hxVkNyaXA3ckJ1SHpqLThMMUpOc3ljcS1fUlp0dEFDSnFLYWlGV3paQXdFVUc2RVo5TWZFLWY3ekJIRGRsQmN2U3BkX05EaGRYZUc4cHBZa0szTDhOUXc1QWhNOEpQYzNIQ0c0djUtaUpsS0lRZkIzdTdMYkxPRkNJejFQR3NKcHRyOW9UWHppTzFSQ3BIRWI4eDd1M1dSbzZLUXRScEpQRFhlZUM1bi1wVm4wU2tyQUFzb2ZiVUsyaEExVE9zclJCZlN1amxDWkwxa3QwU2NKMUVZVXFtTTJWMDNHemV3dzdPbnlMLVVHX1Zwd2l5V294ZVdFZTM4ZWdnRndEblNfdU1maXYxOWM3aVV0d1ZNMy1PRERadWtvT0ZtTlB0aWdGMmJJMDI0RFVzd3haX2xLN2NFUjVMVUVFeEQyeGF6T1dRMWxwZw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="macro" class="news-section">
+    <h2 class="section-title">Macro & Markets <span class="zh-name">宏观与市场</span> <span class="count">(7)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxQTTYwME1VMV9JSk1rbmxpQ0sxSW5McEc3ckxUcXdJUGZiYTRObkJwcnRoczlOT3dDZ2VpWndaNDFZV1Bqd1ZleUoyZjRienYxNHpfcTAyaGJUeFVJdDZxUk52TDFOVUVLY1JIUzhZd2xaNUlwaWhrX21JVFpfaG1kUkNLQldkLUNRenhMZlk2QWxiTWpTNDZXS0dpbFl6WlB6U2JOazZQbmhYOWZUcjVJNVptLXV1RnhQd1AtempQc2EyWVl0UTRTbzB2UDh6QlZ2cWlOMVhDcVNoaFdCaVIxR19lQjVUVGtXWXQ4ckhIRkoxVHVNd2xuWGFrb1JHZTh5X3EyOThXQm81WG9lRm9pZjNpSnVjYmp1UVNWMkRCcGFTR0xPdVFkbVlsVHNCMDkxRl8tbTNBSER0OVkxSlE5ejFkZDY3b3NRYlZQdnNjWDVXT3QwVnAxUGk2OElPZ01fRzUxdTZSYw?oc=5" target="_blank" rel="noopener">Print Edition | Wall Street Journal</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">03:43</span>
+              <a href="https://news.google.com/rss/articles/CBMi5wJBVV95cUxQTTYwME1VMV9JSk1rbmxpQ0sxSW5McEc3ckxUcXdJUGZiYTRObkJwcnRoczlOT3dDZ2VpWndaNDFZV1Bqd1ZleUoyZjRienYxNHpfcTAyaGJUeFVJdDZxUk52TDFOVUVLY1JIUzhZd2xaNUlwaWhrX21JVFpfaG1kUkNLQldkLUNRenhMZlk2QWxiTWpTNDZXS0dpbFl6WlB6U2JOazZQbmhYOWZUcjVJNVptLXV1RnhQd1AtempQc2EyWVl0UTRTbzB2UDh6QlZ2cWlOMVhDcVNoaFdCaVIxR19lQjVUVGtXWXQ4ckhIRkoxVHVNd2xuWGFrb1JHZTh5X3EyOThXQm81WG9lRm9pZjNpSnVjYmp1UVNWMkRCcGFTR0xPdVFkbVlsVHNCMDkxRl8tbTNBSER0OVkxSlE5ejFkZDY3b3NRYlZQdnNjWDVXT3QwVnAxUGk2OElPZ01fRzUxdTZSYw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMivwNBVV95cUxPMVBPLVlOTlFXZlMwLXpfS0FQYnBoX2VVejFoZDk1T0swYnRUc0NJQ0lfNTREQTg4Q2VXREZOeXhHUnNoc055bVBYVFprMTMwNmdjR2R4djdQMWtZYzBBeHZqbnI5N3RkQ2pMb2xHUmdKUGJvd3QyZHhwTkx3VnduMngzV2diOExRS2FPTWRYNmlxOVdxdHhKUkZ1VmxfT2xxSG56d1pXSU1ROHB5d1ZKZ0E3dTVnY1NKa2tDVXNyVkhWZ05oYWtOQWxIdmhnR3owaHhrTXZvdk1PTkRITGFzejNpU1FacnZPTTMtNGo5R0lLS3NUU3FwY0JrclVRMVJobjlCMEtzZkpSWGJVVVEyNUdXQnQ0UWtDaXNoTV93MEdzeHJicnVJQnZRbW93Szk4UlBnYURIUDVENG1yRUp3OEMxOFFraFRwYlIwb0dFdjBVUy10Vkx0VTRhTU9sQXJkR09uTkZ2QUkxNDFZVEpjNTY4S3hxWGthSjJtd1VkMTU5U01BS0JKaGlSLVQ2cnlLQlhwNE5MOV84SUV1RGJURDBNdVJwdS1BeHBxS2lvbTlIUTBFbzUta1F6dk1zRjQ?oc=5" target="_blank" rel="noopener">Deleted Tweet From Energy Secretary Sends Oil Markets on Another Wild Ride</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">22:51</span>
+              <a href="https://news.google.com/rss/articles/CBMivwNBVV95cUxPMVBPLVlOTlFXZlMwLXpfS0FQYnBoX2VVejFoZDk1T0swYnRUc0NJQ0lfNTREQTg4Q2VXREZOeXhHUnNoc055bVBYVFprMTMwNmdjR2R4djdQMWtZYzBBeHZqbnI5N3RkQ2pMb2xHUmdKUGJvd3QyZHhwTkx3VnduMngzV2diOExRS2FPTWRYNmlxOVdxdHhKUkZ1VmxfT2xxSG56d1pXSU1ROHB5d1ZKZ0E3dTVnY1NKa2tDVXNyVkhWZ05oYWtOQWxIdmhnR3owaHhrTXZvdk1PTkRITGFzejNpU1FacnZPTTMtNGo5R0lLS3NUU3FwY0JrclVRMVJobjlCMEtzZkpSWGJVVVEyNUdXQnQ0UWtDaXNoTV93MEdzeHJicnVJQnZRbW93Szk4UlBnYURIUDVENG1yRUp3OEMxOFFraFRwYlIwb0dFdjBVUy10Vkx0VTRhTU9sQXJkR09uTkZ2QUkxNDFZVEpjNTY4S3hxWGthSjJtd1VkMTU5U01BS0JKaGlSLVQ2cnlLQlhwNE5MOV84SUV1RGJURDBNdVJwdS1BeHBxS2lvbTlIUTBFbzUta1F6dk1zRjQ?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-breaking">BREAKING</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMirgNBVV95cUxOaDNVQUNWcnN6dmpwQVlzS0FaWUNyeHlWYzluTk5yYWExdEt1Z1RMaVRNUEhRWEprMFU5NWZ3VUtNcV9lN1Y5MXFtLUhiUXY4bnc2THZ3NXNPaFRfLWtXc1dPZ0tyX3VJUkRnVk5MZ2cwVHZ2LUJQZUZoSUg1V1hzYW5FeGNaYWZ6Y01XaWIwMk5oV1NIcVNBaEJEY0wzUW1iaVlFaEZ6YjhPeXpGZGR2WFg2aWJTLXpwY1NLenlxaXdleFhyaS1vM3FZeWdUOVhESTF6YkVPUTlneFB5YTg3aURpTWUtakpYRnVIRFk2UTIwd2k4WDI1VDRJdUFvWlZCdGRKblZ1c2VEb3BIQXBJSGctajZfUlVOZS1xaWw2a0xfSWttTGNtWVJLU0J6Z212dlJFUkZ6X3lHRnRIRU9vdjR6aVkyT3FYb2FJS3djUWxkczRXY293R216U0dOZEhEaDNMMEhNOUpKZHROWW1KcTE2U0M5RGVIZlpteGFROC01d1lDNVJNUzhvb21sOHhLQ3oweC0tTGJjenlDNjRrRW5yeTNsbW44LVQwcGVn?oc=5" target="_blank" rel="noopener">Boeing Says Wiring Flaws Will Slow Some 737 MAX Deliveries</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">21:37</span>
+              <a href="https://news.google.com/rss/articles/CBMirgNBVV95cUxOaDNVQUNWcnN6dmpwQVlzS0FaWUNyeHlWYzluTk5yYWExdEt1Z1RMaVRNUEhRWEprMFU5NWZ3VUtNcV9lN1Y5MXFtLUhiUXY4bnc2THZ3NXNPaFRfLWtXc1dPZ0tyX3VJUkRnVk5MZ2cwVHZ2LUJQZUZoSUg1V1hzYW5FeGNaYWZ6Y01XaWIwMk5oV1NIcVNBaEJEY0wzUW1iaVlFaEZ6YjhPeXpGZGR2WFg2aWJTLXpwY1NLenlxaXdleFhyaS1vM3FZeWdUOVhESTF6YkVPUTlneFB5YTg3aURpTWUtakpYRnVIRFk2UTIwd2k4WDI1VDRJdUFvWlZCdGRKblZ1c2VEb3BIQXBJSGctajZfUlVOZS1xaWw2a0xfSWttTGNtWVJLU0J6Z212dlJFUkZ6X3lHRnRIRU9vdjR6aVkyT3FYb2FJS3djUWxkczRXY293R216U0dOZEhEaDNMMEhNOUpKZHROWW1KcTE2U0M5RGVIZlpteGFROC01d1lDNVJNUzhvb21sOHhLQ3oweC0tTGJjenlDNjRrRW5yeTNsbW44LVQwcGVn?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiowNBVV95cUxPenROQ2pXN2VIV3JjdjJHZEp5M01GMTZkamdWSlR4T2hyaHRiamF4UDBKU2VpeUdEMTg4XzROcUI3VlVLazlReHhmV0dUcEdsa240MVBfTEdwckpKSklwRExjS3p3MnFJZjdSNU9lVHl3UXpxeWFGb0dTU3lFcWF3Wk1vSjdmQl9neHdkaWVvRFZ1bEs1X1VFcGxJQ2NGc0ZucnZha2hVNXdjLTJyS09lN2M4WVk0MHpnVDlnc1d6UFVNVkxLU2p2cHEzTlhmcTRfNGVZcTh5d0dleXdXdVJEMklDdWtnemIyVjlnWUYxMWRTdXFiSVY4dVU4VmZHYVRGZUVUTWRYRUtoZUppSFFfLUpIRUJpa0JpekNjSUJJM3UtRFVUYU9vX042UWdkamNvc19iV1gxNlJ3T004cGI3dm5SOXdqeVlnbTdGZURZNm42b1Q4cHVCX212ZVBEOTBmeEo1M3JvSUlfNTlXdmJ0TnFJYW82b082MzZCNVlOZHRHUERTMGpwc296VkdsNHVsdzZuTHZscHVMY0pLZEdXbkVBQQ?oc=5" target="_blank" rel="noopener">‘Scarpetta’ Review: Nicole Kidman Amid Cadavers</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">19:59</span>
+              <a href="https://news.google.com/rss/articles/CBMiowNBVV95cUxPenROQ2pXN2VIV3JjdjJHZEp5M01GMTZkamdWSlR4T2hyaHRiamF4UDBKU2VpeUdEMTg4XzROcUI3VlVLazlReHhmV0dUcEdsa240MVBfTEdwckpKSklwRExjS3p3MnFJZjdSNU9lVHl3UXpxeWFGb0dTU3lFcWF3Wk1vSjdmQl9neHdkaWVvRFZ1bEs1X1VFcGxJQ2NGc0ZucnZha2hVNXdjLTJyS09lN2M4WVk0MHpnVDlnc1d6UFVNVkxLU2p2cHEzTlhmcTRfNGVZcTh5d0dleXdXdVJEMklDdWtnemIyVjlnWUYxMWRTdXFiSVY4dVU4VmZHYVRGZUVUTWRYRUtoZUppSFFfLUpIRUJpa0JpekNjSUJJM3UtRFVUYU9vX042UWdkamNvc19iV1gxNlJ3T004cGI3dm5SOXdqeVlnbTdGZURZNm42b1Q4cHVCX212ZVBEOTBmeEo1M3JvSUlfNTlXdmJ0TnFJYW82b082MzZCNVlOZHRHUERTMGpwc296VkdsNHVsdzZuTHZscHVMY0pLZEdXbkVBQQ?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-4">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMinANBVV95cUxOQ1l2NzFUSzQ5RXhwYUlLekxtREhudUozVUVNaUVpLXExenFCdHVJV1pkQnZ5MnItUFd1czltemVoeUJ0TExsZ2pGVTlfZ2ltWHBDYm5mUFQ3N3JXMFJoWkNZR1lHaTBNcFpva3RYOU5aN3pvYWctUkFYNEJLZlVEQUtMUjF0R3RlWUl4ZzRQaGM3VmRsQlF5LUw2UHg1bjZjclY4RWhqWG5lbFBNWFQyTElKRkk1cmhPQk0yTzk2Z1FZbFhZb1FFelhWUFRUY3NsOFhXN2VjS2VDYUZiMldlVGhXVEZaSnNmQi1OVThCbnpYZDVJcUN1eTFpdUdzZEtEY0EwdkphWnlOQ25UcFZCZVEzOFlWS283VHVQOFJCNUVaMGRra1B2RElPS1BoUjRFaVpZb3ozVWRiR1R4RGNhWjU1eHk5UlRsZVJsaGQ2T0p1b19mcjNwVU5nUno0VXp6bHZSWkJtb1dEWTBIMEJQbC1ER0VyNFlyRlVFdklab0hsQkZFUjA5NHRuOWxRN0YwRDZ2TWE0bERIWTg4?oc=5" target="_blank" rel="noopener">Ackman’s Compensation and Other News We Learned From Pershing Square’s Filings</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">18:57</span>
+              <a href="https://news.google.com/rss/articles/CBMinANBVV95cUxOQ1l2NzFUSzQ5RXhwYUlLekxtREhudUozVUVNaUVpLXExenFCdHVJV1pkQnZ5MnItUFd1czltemVoeUJ0TExsZ2pGVTlfZ2ltWHBDYm5mUFQ3N3JXMFJoWkNZR1lHaTBNcFpva3RYOU5aN3pvYWctUkFYNEJLZlVEQUtMUjF0R3RlWUl4ZzRQaGM3VmRsQlF5LUw2UHg1bjZjclY4RWhqWG5lbFBNWFQyTElKRkk1cmhPQk0yTzk2Z1FZbFhZb1FFelhWUFRUY3NsOFhXN2VjS2VDYUZiMldlVGhXVEZaSnNmQi1OVThCbnpYZDVJcUN1eTFpdUdzZEtEY0EwdkphWnlOQ25UcFZCZVEzOFlWS283VHVQOFJCNUVaMGRra1B2RElPS1BoUjRFaVpZb3ozVWRiR1R4RGNhWjU1eHk5UlRsZVJsaGQ2T0p1b19mcjNwVU5nUno0VXp6bHZSWkJtb1dEWTBIMEJQbC1ER0VyNFlyRlVFdklab0hsQkZFUjA5NHRuOWxRN0YwRDZ2TWE0bERIWTg4?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-5">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMilgNBVV95cUxOT1RtajJXaUE1VUJFTGQ5Y1dZazBGR0xnYVdWWEV2Y0lkVVpPOXhyVng0V0ZVZ29XT2hwTVhJYjlhNUFneERvT01WanN2UFB0RWt3a3E1WDhvQk9ON1E5SjQ3LTNCUjBFMlBSQjFjRVh3LVhnMHRDV0o0dkVsX0VteGNoR2lBdUJSYlpGMVlaWUNkQ0JpVEdaUmlJMjlGLXJlSzlCV29vVGxLbS1rbmRpTjhwYWUtbEJqb0xLbzByRlhscFBWU0lmcmVTSVBIdjVpWUJfTGZXRnYtWkRaaXpON0FKZUM3YmFyWFF1UkdDN1Zzdzh2eGJUYko3RzlIVEFRZFpLbzFXR1VtRnJmb1EzV1RrSEIwY3IzT2RTcjVROE5iUXM0T184N051N0R1LUhxVHZmR0pnNFE0Mmo5bjlSdUptbVRmMlkyV3ZHMjZGYnhKc2FmZmpiQXhkblFhLUpQVU9XMXJPbUhXbGF0Zlh3cmI0cHJsbGhPMVpRalp2UkVPbUZRUHpOWVplQ2xiSS1yamduWV93?oc=5" target="_blank" rel="noopener">The Movie Buffs Who Track Film Profits as if They Actually Work in Hollywood</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">16:00</span>
+              <a href="https://news.google.com/rss/articles/CBMilgNBVV95cUxOT1RtajJXaUE1VUJFTGQ5Y1dZazBGR0xnYVdWWEV2Y0lkVVpPOXhyVng0V0ZVZ29XT2hwTVhJYjlhNUFneERvT01WanN2UFB0RWt3a3E1WDhvQk9ON1E5SjQ3LTNCUjBFMlBSQjFjRVh3LVhnMHRDV0o0dkVsX0VteGNoR2lBdUJSYlpGMVlaWUNkQ0JpVEdaUmlJMjlGLXJlSzlCV29vVGxLbS1rbmRpTjhwYWUtbEJqb0xLbzByRlhscFBWU0lmcmVTSVBIdjVpWUJfTGZXRnYtWkRaaXpON0FKZUM3YmFyWFF1UkdDN1Zzdzh2eGJUYko3RzlIVEFRZFpLbzFXR1VtRnJmb1EzV1RrSEIwY3IzT2RTcjVROE5iUXM0T184N051N0R1LUhxVHZmR0pnNFE0Mmo5bjlSdUptbVRmMlkyV3ZHMjZGYnhKc2FmZmpiQXhkblFhLUpQVU9XMXJPbUhXbGF0Zlh3cmI0cHJsbGhPMVpRalp2UkVPbUZRUHpOWVplQ2xiSS1yamduWV93?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-6">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxOMjdxZTRTTVhqVlIycGg0WEp6aDZVb1c2VHczUTgtbUJVaHhTSDNKSURtVUFFUE5HczdEa2xJUlhBSW0yelhKSXB6T1Utc0pkS1hqbktVUVNWbk14dlVSNXhfTktRN2dCR1JHRHdqWUxMNHhMR09VUDgxWUJRVVg1dWMtSno5X21ldFlQUjVrNzltRldvTGxCaFFYdk85ZEhjdFFtYW1qLURyZkpWU2x5WThRQXJfWW55bGY3bzN0Y0tfVG1YMm1fVFEyY28zaDZkR2RHN2JqQm1Cd3l4a1dtN0dkLUJrZE51XzIzbk5JZi1FQ05pNVM4SkQ3SmwwRTE3bzJpYzREMmJzT0lTMXZUVEt6a1ZpZFVKbG42aTF0X2FrWV9kVGZlSXV2cm5DTi1wOXdvakd5dTY2RWJaRjJLb2lYbklfWVREQ2ZibGljSm04ZzJnTFZMbFoxNk1kTHVJTWZDaEdDVHpwWDU2QTRfTy1VbVBvX3JoZy1DVjZuNXhRTG5ZQnE3NUNYVGRua3oxUTNneG1Jb01BNlk?oc=5" target="_blank" rel="noopener">China’s Export Machine Keeps Pumping Ahead of Trump Visit</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">09:58</span>
+              <a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxOMjdxZTRTTVhqVlIycGg0WEp6aDZVb1c2VHczUTgtbUJVaHhTSDNKSURtVUFFUE5HczdEa2xJUlhBSW0yelhKSXB6T1Utc0pkS1hqbktVUVNWbk14dlVSNXhfTktRN2dCR1JHRHdqWUxMNHhMR09VUDgxWUJRVVg1dWMtSno5X21ldFlQUjVrNzltRldvTGxCaFFYdk85ZEhjdFFtYW1qLURyZkpWU2x5WThRQXJfWW55bGY3bzN0Y0tfVG1YMm1fVFEyY28zaDZkR2RHN2JqQm1Cd3l4a1dtN0dkLUJrZE51XzIzbk5JZi1FQ05pNVM4SkQ3SmwwRTE3bzJpYzREMmJzT0lTMXZUVEt6a1ZpZFVKbG42aTF0X2FrWV9kVGZlSXV2cm5DTi1wOXdvakd5dTY2RWJaRjJLb2lYbklfWVREQ2ZibGljSm04ZzJnTFZMbFoxNk1kTHVJTWZDaEdDVHpwWDU2QTRfTy1VbVBvX3JoZy1DVjZuNXhRTG5ZQnE3NUNYVGRua3oxUTNneG1Jb01BNlk?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="tech" class="news-section">
+    <h2 class="section-title">AI & Technology <span class="zh-name">AI 与科技</span> <span class="count">(4)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMivgNBVV95cUxNZ0FWSkQxaFh2c1dDMzA3QnFLaXl1MzBkczhWVDRTbHZmYWdHWHItNmRDU25GZVcwRGFkcHBUMGxla3B0ZGl3SzB3czRFZkRSb2V3emdpLTMydlFVQXhDNFF1VDJ5cW1vQy1DTF9ocElXcTJOV1MwLUY2bjZiR1FldzhiOXdFMnRCTVBMa3A4T0NjSGFmUmZ1MzJ1Y0xJZjV0ejZXV0ZrRzhnS191MGhrUlBQXzM5blRkbERObmpVR1h2U2h0aU5vUzBmU0xPNjMzLVFZdldPaWtNRk9jSGNibG10V29TTGhRS3BPUjhXZTBidTh0Q1JtVDlQQ3FRSVZ1aDZUaVhVdGJxT3VySW9HYVBXWmJWQ0NnTHEya3NVbm93T1NIRzJ1eGNLdUQxNkhvMy1kTTZzTURzZVpyZjk3S28wdlJTMzUtUVBaNmJwM3RMSllteXZoejBBY1JQRkpoQmg4MHotckRFb2JmQk1uRTlaQ2ozYk8tbUFOUW52NndjcGhnbGxDd2xYY2h3R25iaENZd1NxbHJmSmI0NW1CcWJpZlc4ajRSY05PVE1fMWZRc2gxR0xVaUgySEdaZw?oc=5" target="_blank" rel="noopener">Record Diesel-Price Surge Hits U.S. Truckers, Retailers and Manufacturers</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">20:54</span>
+              <a href="https://news.google.com/rss/articles/CBMivgNBVV95cUxNZ0FWSkQxaFh2c1dDMzA3QnFLaXl1MzBkczhWVDRTbHZmYWdHWHItNmRDU25GZVcwRGFkcHBUMGxla3B0ZGl3SzB3czRFZkRSb2V3emdpLTMydlFVQXhDNFF1VDJ5cW1vQy1DTF9ocElXcTJOV1MwLUY2bjZiR1FldzhiOXdFMnRCTVBMa3A4T0NjSGFmUmZ1MzJ1Y0xJZjV0ejZXV0ZrRzhnS191MGhrUlBQXzM5blRkbERObmpVR1h2U2h0aU5vUzBmU0xPNjMzLVFZdldPaWtNRk9jSGNibG10V29TTGhRS3BPUjhXZTBidTh0Q1JtVDlQQ3FRSVZ1aDZUaVhVdGJxT3VySW9HYVBXWmJWQ0NnTHEya3NVbm93T1NIRzJ1eGNLdUQxNkhvMy1kTTZzTURzZVpyZjk3S28wdlJTMzUtUVBaNmJwM3RMSllteXZoejBBY1JQRkpoQmg4MHotckRFb2JmQk1uRTlaQ2ozYk8tbUFOUW52NndjcGhnbGxDd2xYY2h3R25iaENZd1NxbHJmSmI0NW1CcWJpZlc4ajRSY05PVE1fMWZRc2gxR0xVaUgySEdaZw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-1">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimgNBVV95cUxNZzV0N1pKYUVXcmZJaGVlTnJQc2RKUlFkS1FPRVVMM0NHaG9TSXFuWmhtRFUtTzlDdDNVbnhGNnBYZlZmSE56MFN5cVJqQWFXakxXbERRdmM1TmZkclJpQjRtSFJ5cl84c2ZoZmZQZTZpaHY4R0xxMXJKRzBZQklHTVNnTXNfRzVUbEdMbk8xSEZaUGFEcXpvWmNpZnE5M25qcGFGcjB1WFRvSm9yVnhNU0t0eDFHMUJVN21fWVRZT01pZzZpMS1NZi1UZW51YnVqY0dpQy1DbDVqTXVTeXFSSzY5cDFOWXZpQ2xiUFBsZGVfR3YtUGlmTGtmODE5RC1RUW1YSVljWVBQOXlKUEZ2RjFNVEdXLUtNaU51UGpSRmFKLVpEUkl1UmdTRW1Gb3V3RGtmb0NYbWpGRmZPUmVkQjRGdnlMUW9ucmg4b0NnUVFlVFRjVkQxWlBwVnlrZHhQVFhYZDgwRjUxNnY3TlNXVVZDRDlOdUZHWWd1dmhDT2h2TlBvWWZJeVY1dWJoOXpDV3hfTmx6TXVYQQ?oc=5" target="_blank" rel="noopener">BioNTech Shares Fall After Co-Founders Plan Exit and Outlook Misses Forecasts</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">18:02</span>
+              <a href="https://news.google.com/rss/articles/CBMimgNBVV95cUxNZzV0N1pKYUVXcmZJaGVlTnJQc2RKUlFkS1FPRVVMM0NHaG9TSXFuWmhtRFUtTzlDdDNVbnhGNnBYZlZmSE56MFN5cVJqQWFXakxXbERRdmM1TmZkclJpQjRtSFJ5cl84c2ZoZmZQZTZpaHY4R0xxMXJKRzBZQklHTVNnTXNfRzVUbEdMbk8xSEZaUGFEcXpvWmNpZnE5M25qcGFGcjB1WFRvSm9yVnhNU0t0eDFHMUJVN21fWVRZT01pZzZpMS1NZi1UZW51YnVqY0dpQy1DbDVqTXVTeXFSSzY5cDFOWXZpQ2xiUFBsZGVfR3YtUGlmTGtmODE5RC1RUW1YSVljWVBQOXlKUEZ2RjFNVEdXLUtNaU51UGpSRmFKLVpEUkl1UmdTRW1Gb3V3RGtmb0NYbWpGRmZPUmVkQjRGdnlMUW9ucmg4b0NnUVFlVFRjVkQxWlBwVnlrZHhQVFhYZDgwRjUxNnY3TlNXVVZDRDlOdUZHWWd1dmhDT2h2TlBvWWZJeVY1dWJoOXpDV3hfTmx6TXVYQQ?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-2">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxPNUZhRzR0V29XU3N2TDhOQjJYWXhqMTBXZGJzd1NEa3g1bFg1eXRHdS1IdTllNU5PaWdCNlYwRFdvbzBheE5vRTRVMTBCWVhkRjJ0Ym9kcF8wUHdscXNIZy1hdFBiOFIyTWdJRHRkYklxdFdnXzh6d3lUb21rWmJEWUNJd3pBYUtSc25tbkRGOFQ5ZF9rajVPQWhvcl9wTkpIbXBPRUROSVlwbFlRWW1QbzN1dkJkYWFYODBuZC1FQm9nODROYTduQ0VoaWdXc2JKN0xEWU5vYktISm05RWN0SzhOZU93dV9lUUxBTkFpVGc0Q1pNVjhiTUpFdjlNaFhFS0l3R2NUU3RGeE56b2FFNWdyR0dmNWh5WE8tN2pqNmZuNjVsNzk2MVFQdHpvVUNJcXRCUm5ETlZjenRKc25lY20yck1yblNiVFA2WGlOTm1wc1VNX2E4YjNsRXZ0MkxFTVNycFdYQzhpVGJwY2M2RUVhQUtjMTEtQ3ctX0hjSmstTVZDckhmM0YwbFlNcXZmZmRLRUZBQ1lJV28?oc=5" target="_blank" rel="noopener">Meta to Acquire AI-Only Social Media Platform Moltbook</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">16:57</span>
+              <a href="https://news.google.com/rss/articles/CBMimwNBVV95cUxPNUZhRzR0V29XU3N2TDhOQjJYWXhqMTBXZGJzd1NEa3g1bFg1eXRHdS1IdTllNU5PaWdCNlYwRFdvbzBheE5vRTRVMTBCWVhkRjJ0Ym9kcF8wUHdscXNIZy1hdFBiOFIyTWdJRHRkYklxdFdnXzh6d3lUb21rWmJEWUNJd3pBYUtSc25tbkRGOFQ5ZF9rajVPQWhvcl9wTkpIbXBPRUROSVlwbFlRWW1QbzN1dkJkYWFYODBuZC1FQm9nODROYTduQ0VoaWdXc2JKN0xEWU5vYktISm05RWN0SzhOZU93dV9lUUxBTkFpVGc0Q1pNVjhiTUpFdjlNaFhFS0l3R2NUU3RGeE56b2FFNWdyR0dmNWh5WE8tN2pqNmZuNjVsNzk2MVFQdHpvVUNJcXRCUm5ETlZjenRKc25lY20yck1yblNiVFA2WGlOTm1wc1VNX2E4YjNsRXZ0MkxFTVNycFdYQzhpVGJwY2M2RUVhQUtjMTEtQ3ctX0hjSmstTVZDckhmM0YwbFlNcXZmZmRLRUZBQ1lJV28?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+      <article class="story-card" id="story-3">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-essential">ESSENTIAL</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMiuwNBVV95cUxOcE5IZ044b09TcFZNNTlvb3F1enBMQi1HQjllNDZwUm5wTHBNcTVBR1BRUUdHTUphQm9ZMEdfZ0tydnVaVDh4ZjV0TkhhRkttZTl2ZTRFUHc0MzAwVE9ubjByXzV1dVlXLXo2THVJRkxSOHM0VjhHZ0g2NHRFc0NGb2VzZ1VvSHVXcVUzTWV0MllYRnJlbm96OVNrb3dfLVUwcjFlbWowcTVkX2o0LVRGYklZRlZzSktGeS02dVR4Rm9mdUVDV2ZYaHVKdkVzWUg2OHp0WkxVM19QOGxnRlROOXBLdnNUMUdiX2ZVaklsdzA3S1l5dktfR1FYdGpKdDc0SlV4UTNrTmhjX19kNVdOdFhZdXJsYnZTNU1rTVlkWmlpZkVIQkgtamZtZVpZbXBlVlBqa2dGSThGeXFESU9fVkF5WlFXNDZEdkF4UXIxeG9UaDgtMk5iVWxPWUhXcG5YVnBJajd2U0V6Qmh5Zjh5RGloOGIyRTUxdTZOc3JPdTRUNDVnY1RUckw0dFFrcnJZZ2hJSkZtcy16anAteTFrZVQ2ME45WW5UUGhrZW9LdEJJN2xxTFFKV2lUaw?oc=5" target="_blank" rel="noopener">FDA Warns Novo Nordisk of Unreported Side Effects Tied to GLP-1 Patients</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">16:33</span>
+              <a href="https://news.google.com/rss/articles/CBMiuwNBVV95cUxOcE5IZ044b09TcFZNNTlvb3F1enBMQi1HQjllNDZwUm5wTHBNcTVBR1BRUUdHTUphQm9ZMEdfZ0tydnVaVDh4ZjV0TkhhRkttZTl2ZTRFUHc0MzAwVE9ubjByXzV1dVlXLXo2THVJRkxSOHM0VjhHZ0g2NHRFc0NGb2VzZ1VvSHVXcVUzTWV0MllYRnJlbm96OVNrb3dfLVUwcjFlbWowcTVkX2o0LVRGYklZRlZzSktGeS02dVR4Rm9mdUVDV2ZYaHVKdkVzWUg2OHp0WkxVM19QOGxnRlROOXBLdnNUMUdiX2ZVaklsdzA3S1l5dktfR1FYdGpKdDc0SlV4UTNrTmhjX19kNVdOdFhZdXJsYnZTNU1rTVlkWmlpZkVIQkgtamZtZVpZbXBlVlBqa2dGSThGeXFESU9fVkF5WlFXNDZEdkF4UXIxeG9UaDgtMk5iVWxPWUhXcG5YVnBJajd2U0V6Qmh5Zjh5RGloOGIyRTUxdTZOc3JPdTRUNDVnY1RUckw0dFFrcnJZZ2hJSkZtcy16anAteTFrZVQ2ME45WW5UUGhrZW9LdEJJN2xxTFFKV2lUaw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="consumer" class="news-section">
+    <h2 class="section-title">Consumer & Retail <span class="zh-name">消费与零售</span> <span class="count">(1)</span></h2>
+    <div class="story-list">
+      
+      <article class="story-card" id="story-0">
+        <div class="card-main">
+          <div class="left-col">
+            <div class="card-header">
+              <span class="tag tag-standard">STANDARD</span>
+              <span class="source-pill">来源：WSJ</span>
+            </div>
+            <h3 class="headline"><a href="https://news.google.com/rss/articles/CBMivgNBVV95cUxNZ0FWSkQxaFh2c1dDMzA3QnFLaXl1MzBkczhWVDRTbHZmYWdHWHItNmRDU25GZVcwRGFkcHBUMGxla3B0ZGl3SzB3czRFZkRSb2V3emdpLTMydlFVQXhDNFF1VDJ5cW1vQy1DTF9ocElXcTJOV1MwLUY2bjZiR1FldzhiOXdFMnRCTVBMa3A4T0NjSGFmUmZ1MzJ1Y0xJZjV0ejZXV0ZrRzhnS191MGhrUlBQXzM5blRkbERObmpVR1h2U2h0aU5vUzBmU0xPNjMzLVFZdldPaWtNRk9jSGNibG10V29TTGhRS3BPUjhXZTBidTh0Q1JtVDlQQ3FRSVZ1aDZUaVhVdGJxT3VySW9HYVBXWmJWQ0NnTHEya3NVbm93T1NIRzJ1eGNLdUQxNkhvMy1kTTZzTURzZVpyZjk3S28wdlJTMzUtUVBaNmJwM3RMSllteXZoejBBY1JQRkpoQmg4MHotckRFb2JmQk1uRTlaQ2ozYk8tbUFOUW52NndjcGhnbGxDd2xYY2h3R25iaENZd1NxbHJmSmI0NW1CcWJpZlc4ajRSY05PVE1fMWZRc2gxR0xVaUgySEdaZw?oc=5" target="_blank" rel="noopener">Record Diesel-Price Surge Hits U.S. Truckers, Retailers and Manufacturers</a></h3>
+            <div class="source-full">WSJ</div>
+            <footer class="meta">
+              <span class="source-meta">WSJ</span>
+              <span class="time">20:54</span>
+              <a href="https://news.google.com/rss/articles/CBMivgNBVV95cUxNZ0FWSkQxaFh2c1dDMzA3QnFLaXl1MzBkczhWVDRTbHZmYWdHWHItNmRDU25GZVcwRGFkcHBUMGxla3B0ZGl3SzB3czRFZkRSb2V3emdpLTMydlFVQXhDNFF1VDJ5cW1vQy1DTF9ocElXcTJOV1MwLUY2bjZiR1FldzhiOXdFMnRCTVBMa3A4T0NjSGFmUmZ1MzJ1Y0xJZjV0ejZXV0ZrRzhnS191MGhrUlBQXzM5blRkbERObmpVR1h2U2h0aU5vUzBmU0xPNjMzLVFZdldPaWtNRk9jSGNibG10V29TTGhRS3BPUjhXZTBidTh0Q1JtVDlQQ3FRSVZ1aDZUaVhVdGJxT3VySW9HYVBXWmJWQ0NnTHEya3NVbm93T1NIRzJ1eGNLdUQxNkhvMy1kTTZzTURzZVpyZjk3S28wdlJTMzUtUVBaNmJwM3RMSllteXZoejBBY1JQRkpoQmg4MHotckRFb2JmQk1uRTlaQ2ozYk8tbUFOUW52NndjcGhnbGxDd2xYY2h3R25iaENZd1NxbHJmSmI0NW1CcWJpZlc4ajRSY05PVE1fMWZRc2gxR0xVaUgySEdaZw?oc=5" target="_blank" rel="noopener" class="read-more">原文链接 →</a>
+            </footer>
+          </div>
+          
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+    <footer class="site-footer">
+      <p>Generated by AI · 2026-03-11 11:56 UTC</p>
+      <p>Sources: Bloomberg · FT · NYT · WaPo · WSJ</p>
+    </footer>
+  </div>
+</body>
+</html>
